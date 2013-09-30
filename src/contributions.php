@@ -17,7 +17,7 @@ function showGoogleDiff($text1, $text2) {
 
 // A user agent is required by MediaWiki API
 //ini_set('user_agent', 'ProjetGrisou/1.1 (http://grisou.uqam.ca; grisou.science@gmail.com)');
-//test1
+
 
 ///////////////////////////////////////////////////////Articles//////////////////////////////////////////////////////////////////////////////////////////
 $jsonurl = $completeUrl."/w/api.php?action=query&list=usercontribs&format=json&ucuser=".$contributor."&ucnamespace=0%7C4%7C6%7C8&ucprop=ids%7Ctitle%7Ctitle&converttitles=";
