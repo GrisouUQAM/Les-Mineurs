@@ -8,6 +8,7 @@ $completeUrl = "http://";
 $completeUrl.= $url;
 
 include_once( dirname(__FILE__) . '/diffFunctions.php');
+//include_once( dirname(__FILE__) . '/UserInfo.php');
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
@@ -54,15 +55,21 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 					<th>What is the value of the contribution?</th>					
 				</tr>';
 
-
+$tabUsers = new Array();
+$i=0;
 foreach ($usercontributions as $contribution) {
+
+    $tabUsers[i]=new UserInfo();
+
 	$result .= '<tr><td>'.$contribution['title'].'</td>';
 	$pageId = $contribution['pageid'];
 	$revurl = $completeUrl."/w/api.php?action=query&prop=revisions&format=json&rvprop=ids%7Ctimestamp%7Cuser&rvuser=".$contributor."&pageids=".$pageId."";
 	$json = file_get_contents($revurl, true);
 	$obj = json_decode($json, true);
 	$queries = $obj['query'];
-    print $queries;
+
+    $tabUsers[i] = $queries;
+
 	$pages = $queries['pages'];
 	$revision = $pages[$pageId];
 	$userrevision = $revision['revisions'];
@@ -146,6 +153,8 @@ foreach ($usercontributions as $contribution) {
         
 	$result .= '<td>'.$analysisTable.'</td>';
 	$result .= '<td>Score quelconque</td></tr>';
+
+    i++;
 }
 
 $result .= '</table>
