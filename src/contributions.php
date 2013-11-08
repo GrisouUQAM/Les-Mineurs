@@ -53,14 +53,16 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 					<th>Edits</th>
 					<th>What is the value of the contribution?</th>					
 				</tr>';
-				
+
+
 foreach ($usercontributions as $contribution) {
 	$result .= '<tr><td>'.$contribution['title'].'</td>';
 	$pageId = $contribution['pageid'];
 	$revurl = $completeUrl."/w/api.php?action=query&prop=revisions&format=json&rvprop=ids%7Ctimestamp%7Cuser&rvuser=".$contributor."&pageids=".$pageId."";
 	$json = file_get_contents($revurl, true);
-	$obj = json_decode($json, true);	
+	$obj = json_decode($json, true);
 	$queries = $obj['query'];
+    print $queries;
 	$pages = $queries['pages'];
 	$revision = $pages[$pageId];
 	$userrevision = $revision['revisions'];
