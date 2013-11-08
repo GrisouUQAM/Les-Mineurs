@@ -8,7 +8,7 @@ $completeUrl = "http://";
 $completeUrl.= $url;
 
 include_once( dirname(__FILE__) . '/diffFunctions.php');
-//include_once( dirname(__FILE__) . '/UserInfo.php');
+include_once( dirname(__FILE__) . '/UserInfo.php');
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
@@ -55,7 +55,7 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 					<th>What is the value of the contribution?</th>					
 				</tr>';
 
-$tabUsers = new Array();
+$tabUsers = new Array(UserInfo);
 $i=0;
 foreach ($usercontributions as $contribution) {
 
@@ -68,7 +68,7 @@ foreach ($usercontributions as $contribution) {
 	$obj = json_decode($json, true);
 	$queries = $obj['query'];
 
-    $tabUsers[i] = $queries;
+    $tabUsers[i]->setQueries($queries);
 
 	$pages = $queries['pages'];
 	$revision = $pages[$pageId];
