@@ -55,11 +55,11 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 					<th>What is the value of the contribution?</th>					
 				</tr>';
 
-$tabUsers = new Array(UserInfo);
+$tabUsers = Array(UserInfo);
 $i=0;
 foreach ($usercontributions as $contribution) {
 
-    $tabUsers[i]=new UserInfo();
+    $tabUsers[$i]=new UserInfo();
 
 	$result .= '<tr><td>'.$contribution['title'].'</td>';
 	$pageId = $contribution['pageid'];
@@ -68,7 +68,6 @@ foreach ($usercontributions as $contribution) {
 	$obj = json_decode($json, true);
 	$queries = $obj['query'];
 
-
 	$pages = $queries['pages'];
 	$revision = $pages[$pageId];
 	$userrevision = $revision['revisions'];
@@ -76,7 +75,11 @@ foreach ($usercontributions as $contribution) {
 		$oldVersion = $temp['parentid'];
 		$userVersion = $temp['revid'];
 		$usertimestamp = $temp['timestamp'];
-	}	
+	}
+
+    $tabUsers[$i]->setOldVersion($oldVersion);
+    $tabUsers[$i]->setUserVersion($userVersion);
+    $tabUsers[$i]->setUsertimestamp($usertimestamp);
 	
 	$oldRevisionContent = $completeUrl."/w/api.php?action=parse&format=json&oldid=".$oldVersion."&prop=text";
 	$jsonOld = file_get_contents($oldRevisionContent, true);
@@ -153,7 +156,7 @@ foreach ($usercontributions as $contribution) {
 	$result .= '<td>'.$analysisTable.'</td>';
 	$result .= '<td>Score quelconque</td></tr>';
 
-    i++;
+    $i++;
 }
 
 $result .= '</table>
