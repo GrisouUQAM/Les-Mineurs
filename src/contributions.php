@@ -68,7 +68,6 @@ foreach ($usercontributions as $contribution) {
 	$obj = json_decode($json, true);
 	$queries = $obj['query'];
 
-    $tabUsers[i]->setQueries($queries);
 
 	$pages = $queries['pages'];
 	$revision = $pages[$pageId];

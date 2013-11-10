@@ -5,10 +5,8 @@
 
 class UserInfo {
 
-    private $queries;
-    private $pages;
-    private $revision
-    private $userrevision;
+
+    private $pagesId;
     private $oldVersion;
     private $userVersion;
     private $usertimestamp;
@@ -17,25 +15,13 @@ class UserInfo {
     {
         return $this->oldVersion;
     }
-    public function getPages()
+    public function getPagesId()
     {
-        return $this->pages;
-    }
-    public function getQueries()
-    {
-        return $this->queries;
-    }
-    public function getRevision()
-    {
-        return $this->revision;
+        return $this->pagesId;
     }
     public function getUserVersion()
     {
         return $this->userVersion;
-    }
-    public function getUserrevision()
-    {
-        return $this->userrevision;
     }
     public function getUsertimestamp()
     {
@@ -43,17 +29,9 @@ class UserInfo {
     }
 
 
-    public function setQueries($queries)
+    public function setPagesId($pages)
     {
-        $this->queries = $queries;
-    }
-    public function setPages($pages)
-    {
-        $this->pages = $pages;
-    }
-    public function setRevision($revision)
-    {
-        $this->revision = $revision;
+        $this->pagesId = $pages;
     }
     public function setUserVersion($userVersion)
     {
@@ -62,10 +40,6 @@ class UserInfo {
     public function setOldVersion($oldVersion)
     {
         $this->oldVersion = $oldVersion;
-    }
-    public function setUserrevision($userrevision)
-    {
-        $this->userrevision = $userrevision;
     }
     public function setUsertimestamp($usertimestamp)
     {
