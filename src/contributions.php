@@ -77,6 +77,7 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
+    $tabUsers[$i]->setPageId($pageId);
     $tabUsers[$i]->setOldVersion($oldVersion);
     $tabUsers[$i]->setUserVersion($userVersion);
     $tabUsers[$i]->setUsertimestamp($usertimestamp);
