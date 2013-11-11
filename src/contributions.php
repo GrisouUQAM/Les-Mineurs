@@ -55,11 +55,9 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 					<th>What is the value of the contribution?</th>					
 				</tr>';
 
-$tabUsers = Array(UserInfo);
+$tabUsers = array();
 $i=0;
 foreach ($usercontributions as $contribution) {
-
-    $tabUsers[$i]=new UserInfo();
 
 	$result .= '<tr><td>'.$contribution['title'].'</td>';
 	$pageId = $contribution['pageid'];
@@ -77,10 +75,14 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $tabUsers[$i]->setPageId($pageId);
-    $tabUsers[$i]->setOldVersion($oldVersion);
-    $tabUsers[$i]->setUserVersion($userVersion);
-    $tabUsers[$i]->setUsertimestamp($usertimestamp);
+    $uneContrib = new UserInfo();
+
+    $uneContrib->setPagesId($pageId);
+    $uneContrib->setOldVersion($oldVersion);
+    $uneContrib->setUserVersion($userVersion);
+    $uneContrib->setUsertimestamp($usertimestamp);
+    
+    array_push($tabUsers, $uneContri);
 	
 	$oldRevisionContent = $completeUrl."/w/api.php?action=parse&format=json&oldid=".$oldVersion."&prop=text";
 	$jsonOld = file_get_contents($oldRevisionContent, true);
