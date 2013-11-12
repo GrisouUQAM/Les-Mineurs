@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 12, 2013 at 01:35 AM
+-- Generation Time: Nov 12, 2013 at 02:05 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -25,19 +25,6 @@ USE `wiki_contrib`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contributeurs`
---
-
-CREATE TABLE IF NOT EXISTS `contributeurs` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `nom_de_contributeur` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `ID` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `contributions`
 --
 
@@ -47,9 +34,21 @@ CREATE TABLE IF NOT EXISTS `contributions` (
   `rev_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `parent_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `provenance` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contributor`
+--
+
+CREATE TABLE IF NOT EXISTS `contributor` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `contributor_username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
