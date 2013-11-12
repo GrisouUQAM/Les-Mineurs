@@ -8,7 +8,7 @@ $completeUrl = "http://";
 $completeUrl.= $url;
 
 include_once( dirname(__FILE__) . '/diffFunctions.php');
-include_once( dirname(__FILE__) . '/UserInfo.php');
+include_once(dirname(__FILE__) . '/ContributionInfo.php');
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
@@ -75,12 +75,7 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $uneContrib = new UserInfo();
-
-    $uneContrib->setPagesId($pageId);
-    $uneContrib->setOldVersion($oldVersion);
-    $uneContrib->setUserVersion($userVersion);
-    $uneContrib->setUsertimestamp($usertimestamp);
+    $uneContrib = new UserInfo($wikiurl ,$pagesId, $oldVersion, $userVersion, $usertimestamp);
     
     array_push($tabUsers, $uneContri);
 	
