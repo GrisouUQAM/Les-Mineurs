@@ -35,10 +35,38 @@ class DBManagement {
        public function verifyContributorIDandCreateIfNotPresent($username) {
              $result = $bdd -> query('SELECT ID FROM contributor where username =' . $username);
              $row_count = $result -> rowCount();
+           
              if ($row_count == 0) {
                     $bdd -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
              }
        }
+
+    /*****************************************************
+     * Vérifie si l'utilisateur existe
+     * Si NON, il appel createIfNotPresent pour le créer
+     * si oui il retourne le ID pour utilisation futur
+     ******************************************************/
+
+     /*public function verifyContributorID($username) {
+            $result = $bdd -> query('SELECT ID FROM contributor where username =' . $username);
+            $row_count = $result -> rowCount();
+            if ($row_count == 0) {
+             createIfNotPresent($username);
+            }
+            return $result;
+     }*/
+
+
+
+    /*******************************************************
+     * Crée l'utilisateur dans la table
+     ********************************************************/
+
+       /* public function createIfNotPresent($username) {
+            $bdd -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
+            verifyContributorID($username);
+        }*/
+
 
 }
 ?>
