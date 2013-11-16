@@ -57,6 +57,8 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 
 $tabUsers = array();
 $i=0;
+$userID = verifyContributorID($contributor);
+
 foreach ($usercontributions as $contribution) {
 
 	$result .= '<tr><td>'.$contribution['title'].'</td>';
@@ -75,7 +77,7 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $uneContrib = new UserInfo($wikiurl ,$pagesId, $oldVersion, $userVersion, $usertimestamp);
+    $uneContrib = new UserInfo($UserID, $wikiurl ,$pagesId, $oldVersion, $userVersion, $usertimestamp);
     
     array_push($tabUsers, $uneContri);
 	
