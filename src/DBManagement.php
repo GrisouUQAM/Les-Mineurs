@@ -81,15 +81,7 @@ class DBManagement {
        
 
 
-       public function verifyContributorIDandCreateIfNotPresent($username) {
-           $result = $bdd -> query('SELECT ID FROM contributor where username =' . $username);
-           $row_count = $result -> rowCount();
-
-           if ($row_count == 0) {
-                  $bdd -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
-           }
-       }
-
+       
    
 }
 ?>
