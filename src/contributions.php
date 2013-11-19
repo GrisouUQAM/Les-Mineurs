@@ -55,8 +55,10 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 					<th>What is the value of the contribution?</th>					
 				</tr>';
 
-$tabUsers = array();
+
 $i=0;
+
+insertUserIntoTable($contributor);
 $userID = verifyContributorID($contributor);
 
 foreach ($usercontributions as $contribution) {
@@ -77,9 +79,9 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $uneContrib = new UserInfo($UserID, $wikiurl ,$pagesId, $oldVersion, $userVersion, $usertimestamp);
+    $uneContrib = new ContributionInfo($UserID, $wikiurl ,$pagesId, $oldVersion, $userVersion, $usertimestamp);
     
-    array_push($tabUsers, $uneContri);
+    insertContributionIntoTable($uneContrib);
 	
 	$oldRevisionContent = $completeUrl."/w/api.php?action=parse&format=json&oldid=".$oldVersion."&prop=text";
 	$jsonOld = file_get_contents($oldRevisionContent, true);
