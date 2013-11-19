@@ -13,14 +13,13 @@ class DBManagement {
        * du user ID et du siteweb d'ou provient la contribution
        *********************************************************/
 
-       public function compareContributionIfInTable($ContributionInfo) {
+       public function compareContributionIfInTable($uneContrib) {
            
-            $result = $bdd -> query('SELECT * FROM contributions WHERE ID ='  . $ContributionInfo->getUserID() . ' AND timestamp =' . $UserInfo->getPagesID() . 'AND website =' . $UserInfo->getWebSite());
+            $result = $bdd -> query('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
             $row_count = $result -> rowCount();
             if ($row_count == 0) {
                 return false;
-            }
- else {
+            } else {
                 return true;
             }
            
@@ -32,16 +31,16 @@ class DBManagement {
       /**********************************************************
       * Insert dans la table table les informations de la contributions
       ****************************************************************/ 
-       public function insertContributionIntoTable($ContributionInfo){
+       public function insertContributionIntoTable($uneContrib){
             
-            if (!compareContributionIfInTable($ContributionInfo)){
+            if (!compareContributionIfInTable($uneContrib)){
                    
-                $contributionIDToInsert = $ContributionInfo->getPagesId();
-                $contributionOldVersionToInsert = $ContributionInfo->getOldVersion();
-                $contributionUserVersionToInsert = $ContributionInfo->getUserVersion();
-                $contributionUsertimestampToInsert = $ContributionInfo->getUsertimestamp();
-                $contributionWebsiteToInsert = $ContributionInfo->getWebsite();
-                $contributorID = $ContributionInfo->getID();
+                $contributionIDToInsert = $uneContrib->getPagesId();
+                $contributionOldVersionToInsert = $uneContrib->getOldVersion();
+                $contributionUserVersionToInsert = $uneContrib->getUserVersion();
+                $contributionUsertimestampToInsert = $uneContrib->getUsertimestamp();
+                $contributionWebsiteToInsert = $uneContrib->getWebsite();
+                $contributorID = $uneContrib->getID();
                
             
                 bdd -> exec("INSERT INTO contributions('ID',page_id','rev_id','parent_id','time','website') VALUES('" . $contributorID . "','" . $contributionIDToInsert . "','" . $contributionUserVersionToInsert . "','" . $contributionOldVersionToInsert . "','" . $contributionUsertimestampToInsert . "','" . $contributionWebsiteToInsert . "')");
@@ -68,7 +67,7 @@ class DBManagement {
             }
        }
        
-       public function retrieveUserID() {
+       public function retrieveUserID($username) {
             $result = $bdd -> query('SELECT ID FROM contributor WHERE username =' . $username);
             $row_count = $result -> rowcount();
             if ($row_count == 0) {
