@@ -10,12 +10,9 @@ Test Unitaire
 -------------
 **Instalation**
 
-Php Unit:
-[http://phpunit.de/manual/current/en/installation.html][1]
-
-Sur PhpStorm
-http://confluence.jetbrains.com/display/PhpStorm/PHPUnit+Installation+via+Composer+in+PhpStorm
+[PhpUnit][1]  |  [PhpStorm][2]
 
 
 
   [1]: http://phpunit.de/manual/current/en/installation.html
+  [2]: http://confluence.jetbrains.com/display/PhpStorm/PHPUnit+Installation+via+Composer+in+PhpStorm
