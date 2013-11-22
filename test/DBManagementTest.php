@@ -75,7 +75,7 @@ class DBManagementTest extends PHPUnit_Framework_TestCase {
     function __clone()
     {
         // TODO: Implement __clone() method.
-    }
+    }lw
 
 
 }
