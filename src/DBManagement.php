@@ -4,71 +4,83 @@ include_once (dirname(__FILE__) . '/DBConnection.php');
 include_once (dirname(__FILE__) . '/ContributionInfo.php');
 
 class DBManagement {
-       public function retrieveContributionID($contributorID, $website) {
-           $result = $bdd -> query('SELECT page_id FROM contributions where ID =' . $contributorID . ' and website = ' . $website);
-           $contributionsID;
-           while ($contributionsID = $result -> fetch()) {
-           }
-           return $contributionsID;
-       }
-
-       public function insertIfContributionNotPresent($UserInfo) {
 
 
-           $contributionIDToInsert = $UserInfo->getPagesId();
-           $contributionOldVersionToInsert = $UserInfo->getOldVersion();
-           $contributionUserVersionToInsert = $UserInfo->getUserVersion();
-           $contributionUsertimestampToInsert = $UserInfo->getUsertimestamp();
-           $contributionWebsiteToInsert = $UserInfo->getWebsite();
-           $contributorIdToInsert = $UserInfo->getUserID;
+      /********************************************************
+       * Compare avec le tableau si les éléments existe déjà
+       * Si n'existe pas, il appelle la fonction insertIntoTable
+       * la vérification se fait à l'aide du nom d'utilisateur
+       * du user ID et du siteweb d'ou provient la contribution
+       *********************************************************/
 
-           $contributionsID = retrieveContributionID($contributorIdToInsert, $contributionWebsiteToInsert);
-
-           foreach ($contributionsID as $IDvalue) {
-                  if ($IDvalue == $contributionIDToInsert) {
-                         return;
-                  }
-           }
-
-           $bdd -> exec("INSERT INTO contributions('ID',page_id','rev_id','parent_id','time','website') VALUES('" . $contributorIdToInsert . "','" . $contributionIDToInsert . "','" . $contributionUserVersionToInsert . "','" . $contributionOldVersionToInsert . "','" . $contributionUsertimestampToInsert . "','" . $contributionWebsiteToInsert . "')");
+       public function compareContributionIfInTable($uneContrib) {
+           
+            $result = $bdd -> query('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
+            $row_count = $result -> rowCount();
+            if ($row_count == 0) {
+                return false;
+            } else {
+                return true;
+            }
+           
+       
 
        }
 
-       public function verifyContributorIDandCreateIfNotPresent($username) {
-           $result = $bdd -> query('SELECT ID FROM contributor where username =' . $username);
-           $row_count = $result -> rowCount();
 
-           if ($row_count == 0) {
-                  $bdd -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
-           }
+      /**********************************************************
+      * Insert dans la table table les informations de la contributions
+      ****************************************************************/ 
+       public function insertContributionIntoTable($uneContrib){
+            
+            if (!compareContributionIfInTable($uneContrib)){
+                   
+                $contributionIDToInsert = $uneContrib->getPagesId();
+                $contributionOldVersionToInsert = $uneContrib->getOldVersion();
+                $contributionUserVersionToInsert = $uneContrib->getUserVersion();
+                $contributionUsertimestampToInsert = $uneContrib->getUsertimestamp();
+                $contributionWebsiteToInsert = $uneContrib->getWebsite();
+                $contributorID = $uneContrib->getID();
+               
+            
+                bdd -> exec("INSERT INTO contributions('ID',page_id','rev_id','parent_id','time','website') VALUES('" . $contributorID . "','" . $contributionIDToInsert . "','" . $contributionUserVersionToInsert . "','" . $contributionOldVersionToInsert . "','" . $contributionUsertimestampToInsert . "','" . $contributionWebsiteToInsert . "')");
+
+                
+           }      
        }
 
-    /*****************************************************
-     * Vérifie si l'utilisateur existe
-     * Si NON, il appel createIfNotPresent pour le créer
-     * si oui il retourne le ID pour utilisation futur
-     ******************************************************/
+      
+       
+       public function compareUserIfInTable($username) {
+             $result = $bdd -> query('SELECT ID FROM contributor where username =' . $username);
+             $row_count = $result -> rowCount();
+             if ($row_count == 0) {
+                 return false;
+             } else {
+                 return true;
+             }
+       }
+       
+       public function insertUserIntoTable($username) {
+            if (!compareUserIfInTable($ContributionInfo()) { 
+                $bdd -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");               
+            }
+       }
+       
+       public function retrieveUserID($username) {
+            $result = $bdd -> query('SELECT ID FROM contributor WHERE username =' . $username);
+            $row_count = $result -> rowcount();
+            if ($row_count == 0) {
+                return null;
+            } else {
+                return $result->fetch();
+            } 
+       }
+ 
+       
 
-     /*public function verifyContributorID($username) {
-          $result = $bdd -> query('SELECT ID FROM contributor where username =' . $username);
-          $row_count = $result -> rowCount();
-          if ($row_count == 0) {
-            createIfNotPresent($username);
-          }
-          return $result;
-     }*/
 
-
-
-    /*******************************************************
-     * Crée l'utilisateur dans la table
-     ********************************************************/
-
-       /* public function createIfNotPresent($username) {
-            $bdd -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
-            verifyContributorID($username);
-        }*/
-
-
+       
+   
 }
 ?>

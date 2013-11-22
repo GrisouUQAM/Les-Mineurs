@@ -15,7 +15,7 @@ class ContributionInfo {
 
     function __construct($userID, $website,  $pagesId, $oldVersion, $userVersion, $usertimestamp )
     {
-        $this->$userID = $userID;
+        $this->userID = $userID;
         $this->website = $website;
         $this->pagesId = $pagesId;
         $this->oldVersion = $oldVersion;
