@@ -5,6 +5,21 @@ Les mineurs - INM5001 - AUT13
 Documentation
 -------------
 
+Pré-requis
+----------
+Serveur LAMP, WAMP ou MAMP avec phpMyAdmin mais les commandes SQL peuvent être faites
+manuellement avec le client mysql si vous êtes à l'aise avec celui-ci.
+
+Base de données
+---------------
+
+Importer le wiki_contrib.sql dans phpMyAdmin.
+
+Ajouter l’usager wikicontrib avec cette requete SQL:
+
+CREATE USER 'wikicontrib'@'localhost' IDENTIFIED BY 'wiki007';
+GRANT ALL PRIVILEGES ON wiki_contrib . * TO 'wikicontrib'@'localhost';
+FLUSH PRIVILEGES;
 
 Test Unitaire
 -------------
