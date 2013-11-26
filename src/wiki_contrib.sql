@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `talk` (
   `ID` int(11) NOT NULL,
   `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `page_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `rev_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
