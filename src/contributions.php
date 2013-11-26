@@ -183,6 +183,12 @@ $result .= '<h1>Talks which '.$contributor.' contributed to</h1>
 				</tr>';
 				
 foreach ($userTalks as $talk) {
+  $pageId = $talk['pageid'];
+  $revisionId = $talk['revid'];
+  
+  $unPost = new PostInfo($UserID, $wikiurl ,$pageId, $revisionId);
+  insertPostIntoTable($unPost);
+
 	$result .= '<tr><td>'.$talk['title'].'</td>';
 
 	$result .= '<td>'.$talk['comment'].'</td></tr>';
