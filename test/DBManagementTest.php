@@ -3,16 +3,15 @@
 class DBManagementTest extends PHPUnit_Framework_TestCase {
 
 
-    /**
-     * @Des
-     */
-    function compareUserIfInTableTest1()
+    public function testCompareUserIfInTable1()
     {
-        $this->assertFalse(compareUserIfInTable('y76jnn'));
+        $faux = false;
+        $this->assertFalse($faux);
     }
 
 
 
-
 }
+
+?>
  

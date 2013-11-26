@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/league/phpunit-coverage-listener" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/dbunit" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/php-token-stream" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/phpunit/phpunit-mock-objects" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/yaml" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/composer.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/composer.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/src/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-file-iterator" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-code-coverage" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/dbunit" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-timer" />
+          <root url="file://$MODULE_DIR$/src/vendor/composer" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/phpunit" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/phpunit-mock-objects" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-token-stream" />
+          <root url="file://$MODULE_DIR$/src/vendor/league/phpunit-coverage-listener" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-text-template" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/src/vendor/symfony/yaml" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-file-iterator" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-code-coverage" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/dbunit" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-timer" />
+          <root url="file://$MODULE_DIR$/src/vendor/composer" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/phpunit" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/phpunit-mock-objects" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-token-stream" />
+          <root url="file://$MODULE_DIR$/src/vendor/league/phpunit-coverage-listener" />
+          <root url="file://$MODULE_DIR$/src/vendor/phpunit/php-text-template" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
 
