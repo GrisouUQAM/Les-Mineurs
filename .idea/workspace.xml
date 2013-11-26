@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef5dac0c-ecc7-47c2-aed3-d7b593271626" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/DBManagementTest.php" afterPath="$PROJECT_DIR$/test/DBManagementTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Les-Mineurs.iml" afterPath="$PROJECT_DIR$/.idea/Les-Mineurs.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation.md" afterPath="$PROJECT_DIR$/Documentation.md" />
     </list>
     <ignored path="Les-Mineurs.iws" />
     <ignored path=".idea/workspace.xml" />
