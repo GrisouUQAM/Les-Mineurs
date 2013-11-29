@@ -15,9 +15,9 @@ class DBManagement {
 * du user ID et du siteweb d'ou provient la contribution
 *********************************************************/
   
-  public function compareContributionIfInTable($uneContrib) {
+  public function compareContributionIfInTable($uneContrib, $dataBase) {
     
-    $result = $bdd -> query('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
+    $result = $dataBase -> query('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
     $row_count = $result -> rowCount();
     if ($row_count == 0) {
       return false;
@@ -30,7 +30,7 @@ class DBManagement {
   }
   
   
-  /**********************************************************
+/**********************************************************
 * Insert dans la table table les informations de la contributions
 ****************************************************************/ 
   public function insertContributionIntoTable($uneContrib){
@@ -81,7 +81,7 @@ class DBManagement {
         
         
         
-      /********************************************************
+/********************************************************
 * Compare avec le tableau si les éléments d'un talk existe déjà
 * Si n'existe pas, il appelle la fonction insertPostIntoTable
 * la vérification se fait à l'aide du nom d'utilisateur
@@ -103,7 +103,7 @@ class DBManagement {
         }
         
         
-        /**********************************************************
+/**********************************************************
 * Insert dans la table table les informations d'un post
 ****************************************************************/ 
         public function insertPostIntoTable($unPost){
