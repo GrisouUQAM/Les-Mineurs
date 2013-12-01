@@ -9,6 +9,7 @@ $completeUrl.= $url;
 
 include_once( dirname(__FILE__) . '/diffFunctions.php');
 include_once(dirname(__FILE__) . '/ContributionInfo.php');
+include_once(dirname(__FILE__) . '/DBConnection.php');
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
