@@ -6,14 +6,21 @@ include_once (dirname(__FILE__) . '/PostInfo.php');
 
 class DBManagementTest extends PHPUnit_Framework_TestCase {
 
-    static private $pdo = null;
+
+    public function setUp(){
+        require_once "PHPUnit/Extensions/Database/TestCase.php";
+        include_once (dirname(__FILE__) . '/DBManagement.php');
+        include_once (dirname(__FILE__) . '/PostInfo.php');
+        $pdo = null;
+    }
+
 
     /**
      * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
      */
     public function getConnection()
     {
-        this->$pdo = new PDO('mysql:host=localhost;dbname=wiki_contrib', 'wikicontrib', 'wiki007');
+
         return $this->createDefaultDBConnection($pdo, ':memory:');
     }
 
@@ -27,8 +34,10 @@ class DBManagementTest extends PHPUnit_Framework_TestCase {
 
     public function testCompareUserIfInTable1()
     {
-        $faux = false;
-        $this->assertFalse(compareContributionIfInTable($uneContrib, $pdo));
+        $pdo = new PDO('mysql:host=localhost;dbname=wiki_contrib', 'wikicontrib', 'wiki007');
+        $uneContrib = "unecontrib";
+        $result = DBManagement::compareContributionIfInTable($uneContrib, $pdo);
+        $this->assertFalse($result);
     }
 
 
