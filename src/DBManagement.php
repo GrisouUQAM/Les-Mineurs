@@ -33,7 +33,7 @@ class DBManagement {
 /**********************************************************
 * Insert dans la table table les informations de la contributions
 ****************************************************************/ 
-  public function insertContributionIntoTable($uneContrib){
+  public function insertContributionIntoTable($uneContrib, $dataBase){
     
     if (!compareContributionIfInTable($uneContrib)){
       
@@ -43,9 +43,9 @@ class DBManagement {
       $contributionUsertimestampToInsert = $uneContrib->getUsertimestamp();
       $contributionWebsiteToInsert = $uneContrib->getWebsite();
       $contributorID = $uneContrib->getID();
-      
-      
-      bdd -> exec("INSERT INTO contributions('ID','page_id','rev_id','parent_id','time','website') VALUES('" . $contributorID . "','" . $contributionIDToInsert . "','" . $contributionUserVersionToInsert . "','" . $contributionOldVersionToInsert . "','" . $contributionUsertimestampToInsert . "','" . $contributionWebsiteToInsert . "')");
+
+
+        $dataBase -> exec("INSERT INTO contributions('ID','page_id','rev_id','parent_id','time','website') VALUES('" . $contributorID . "','" . $contributionIDToInsert . "','" . $contributionUserVersionToInsert . "','" . $contributionOldVersionToInsert . "','" . $contributionUsertimestampToInsert . "','" . $contributionWebsiteToInsert . "')");
       
       
     }      
@@ -53,8 +53,8 @@ class DBManagement {
   
   
   
-  public function compareUserIfInTable($username) {
-    $result = $bdd -> query('SELECT ID FROM contributor where username =' . $username);
+  public function compareUserIfInTable($username,$dataBase) {
+    $result = $dataBase -> query('SELECT ID FROM contributor where username =' . $username);
     $row_count = $result -> rowCount();
     if ($row_count == 0) {
       return false;
@@ -63,14 +63,14 @@ class DBManagement {
     }
   }
   
-  public function insertUserIntoTable($username) {
-    if (!compareUserIfInTable($username) { 
-      $bdd -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");               
+  public function insertUserIntoTable($username, $dataBase) {
+    if (!compareUserIfInTable($username) {
+    $dataBase -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
     }
   }
         
-  public function retrieveUserID($username) {
-          $result = $bdd -> query('SELECT ID FROM contributor WHERE username =' . $username);
+  public function retrieveUserID($username, $dataBase) {
+          $result = $dataBase -> query('SELECT ID FROM contributor WHERE username =' . $username);
           $row_count = $result -> rowcount();
           if ($row_count == 0) {
             return null;
@@ -88,9 +88,9 @@ class DBManagement {
 * du user ID et du siteweb d'ou provient le post
 *********************************************************/
         
-        public function comparePostIfInTable(unPost) {
+        public function comparePostIfInTable($unPost, $dataBase) {
           
-          $resultTalk = $bdd -> exec("SELECT * FROM talk where rev_id =".$postIDToInsert. "AND ID=".$userID."AND website=".$postWebsiteToInsert);
+          $resultTalk = $dataBase -> exec("SELECT * FROM talk where rev_id =".$postIDToInsert. "AND ID=".$userID."AND website=".$postWebsiteToInsert);
           $row_count = $result -> rowcount();
           
           if ($row_count == 0) {
@@ -106,15 +106,15 @@ class DBManagement {
 /**********************************************************
 * Insert dans la table table les informations d'un post
 ****************************************************************/ 
-        public function insertPostIntoTable($unPost){
+        public function insertPostIntoTable($unPost, $dataBase){
           
           if (!comparePostIfInTable($unPost)0) {
             $postIDToInsert = $unPost->getPagesId();
             $postWebsiteToInsert = $unPost->getWebsite();
             $userID = $unPost->getID();
             $postPost = $unPost->getPost();
-            
-            bdd -> exec("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $postPost . "')");
+
+                $dataBase -> exec("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $postPost . "')");
           }
         }
               
