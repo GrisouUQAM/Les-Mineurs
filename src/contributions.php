@@ -10,6 +10,7 @@ $completeUrl.= $url;
 include_once( dirname(__FILE__) . '/diffFunctions.php');
 include_once(dirname(__FILE__) . '/ContributionInfo.php');
 include_once(dirname(__FILE__) . '/DBConnection.php');
+$bdd = createConnection();
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
@@ -59,8 +60,8 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 
 $i=0;
 
-insertUserIntoTable($contributor);
-$userID = verifyContributorID($contributor);
+insertUserIntoTable($contributor,$bdd);
+$userID = verifyContributorID($contributor,$bdd);
 
 foreach ($usercontributions as $contribution) {
 
@@ -82,7 +83,7 @@ foreach ($usercontributions as $contribution) {
 
     $uneContrib = new ContributionInfo($UserID, $wikiurl ,$pagesId, $oldVersion, $userVersion, $usertimestamp);
     
-    insertContributionIntoTable($uneContrib);
+    insertContributionIntoTable($uneContrib,$bdd);
 	
 	$oldRevisionContent = $completeUrl."/w/api.php?action=parse&format=json&oldid=".$oldVersion."&prop=text";
 	$jsonOld = file_get_contents($oldRevisionContent, true);
@@ -188,7 +189,7 @@ foreach ($userTalks as $talk) {
   $revisionId = $talk['revid'];
   
   $unPost = new PostInfo($UserID, $wikiurl ,$pageId, $revisionId);
-  insertPostIntoTable($unPost);
+  insertPostIntoTable($unPost,$bdd);
 
 	$result .= '<tr><td>'.$talk['title'].'</td>';
 
