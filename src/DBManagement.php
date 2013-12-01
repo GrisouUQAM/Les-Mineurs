@@ -64,7 +64,7 @@ class DBManagement {
   }
   
   public function insertUserIntoTable($username, $dataBase) {
-    if (!compareUserIfInTable($username) {
+    if (!compareUserIfInTable($username, $dataBase) {
     $dataBase -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
     }
   }
