@@ -10,7 +10,7 @@ $completeUrl.= $url;
 include_once( dirname(__FILE__) . '/diffFunctions.php');
 include_once(dirname(__FILE__) . '/ContributionInfo.php');
 include_once(dirname(__FILE__) . '/DBConnection.php');
-$bdd = createConnection();
+$bdd = DBConnection::createConnection();
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
