@@ -15,7 +15,7 @@ class DBManagement {
 * du user ID et du siteweb d'ou provient la contribution
 *********************************************************/
   
-  public function compareContributionIfInTable($uneContrib, $dataBase) {
+  public static function compareContributionIfInTable($uneContrib, $dataBase) {
     
     $result = $dataBase -> query('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
     $row_count = $result -> rowCount();
@@ -33,7 +33,7 @@ class DBManagement {
 /**********************************************************
 * Insert dans la table table les informations de la contributions
 ****************************************************************/ 
-  public function insertContributionIntoTable($uneContrib, $dataBase){
+  public static function insertContributionIntoTable($uneContrib, $dataBase){
     
     if (!compareContributionIfInTable($uneContrib)){
       
@@ -53,7 +53,7 @@ class DBManagement {
   
   
   
-  public function compareUserIfInTable($username,$dataBase) {
+  public static function compareUserIfInTable($username,$dataBase) {
     $result = $dataBase -> query('SELECT ID FROM contributor where username =' . $username);
     $row_count = $result -> rowCount();
     if ($row_count == 0) {
@@ -63,13 +63,13 @@ class DBManagement {
     }
   }
   
-  public function insertUserIntoTable($username, $dataBase) {
+  public static function insertUserIntoTable($username, $dataBase) {
     if (!compareUserIfInTable($username, $dataBase) {
     $dataBase -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
     }
   }
         
-  public function retrieveUserID($username, $dataBase) {
+  public static function retrieveUserID($username, $dataBase) {
           $result = $dataBase -> query('SELECT ID FROM contributor WHERE username =' . $username);
           $row_count = $result -> rowcount();
           if ($row_count == 0) {
@@ -88,7 +88,7 @@ class DBManagement {
 * du user ID et du siteweb d'ou provient le post
 *********************************************************/
         
-        public function comparePostIfInTable($unPost, $dataBase) {
+        public static function comparePostIfInTable($unPost, $dataBase) {
           
           $resultTalk = $dataBase -> exec("SELECT * FROM talk where rev_id =".$postIDToInsert. "AND ID=".$userID."AND website=".$postWebsiteToInsert);
           $row_count = $result -> rowcount();
@@ -106,7 +106,7 @@ class DBManagement {
 /**********************************************************
 * Insert dans la table table les informations d'un post
 ****************************************************************/ 
-        public function insertPostIntoTable($unPost, $dataBase){
+        public static function insertPostIntoTable($unPost, $dataBase){
           
           if (!comparePostIfInTable($unPost)0) {
             $postIDToInsert = $unPost->getPagesId();
