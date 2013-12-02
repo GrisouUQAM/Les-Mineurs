@@ -8,7 +8,7 @@ include_once (dirname(__FILE__) . '/PostInfo.php');
 class DBManagement {
   
   
-  /********************************************************
+/********************************************************
 * Compare avec le tableau si les éléments existe déjà
 * Si n'existe pas, il appelle la fonction insertIntoTable
 * la vérification se fait à l'aide du nom d'utilisateur
