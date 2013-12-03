@@ -19,14 +19,7 @@ class DBManagement {
     
     $result = $dataBase -> query('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
     $row_count = $result -> rowCount();
-    if ($row_count == 0) {
-      return false;
-    } else {
-      return true;
-    }
-    
-    
-    
+    return !($row_count == 0);
   }
   
   
@@ -56,11 +49,7 @@ class DBManagement {
   public static function compareUserIfInTable($username,$dataBase) {
     $result = $dataBase -> query('SELECT ID FROM contributor where username =' . $username);
     $row_count = $result -> rowCount();
-    if ($row_count == 0) {
-      return false;
-    } else {
-      return true;
-    }
+      return !($row_count == 0);
   }
   
   public static function insertUserIntoTable($username, $dataBase) {
@@ -72,11 +61,7 @@ class DBManagement {
   public static function retrieveUserID($username, $dataBase) {
           $result = $dataBase -> query('SELECT ID FROM contributor WHERE username =' . $username);
           $row_count = $result -> rowcount();
-          if ($row_count == 0) {
-            return null;
-          } else {
-            return $result->fetch();
-          } 
+          return ($row_count == 0) ? null : $result->fetch() ;
   }
         
         
@@ -91,15 +76,8 @@ class DBManagement {
         public static function comparePostIfInTable($unPost, $dataBase) {
           
           $resultTalk = $dataBase -> exec("SELECT * FROM talk where rev_id =".$postIDToInsert. "AND ID=".$userID."AND website=".$postWebsiteToInsert);
-          $row_count = $result -> rowcount();
-          
-          if ($row_count == 0) {
-            return true;
-          } else {
-            
-                  return false;
-          }
-
+          $row_count = $resultTalk -> rowcount();
+          return $row_count == 0;
         }
         
         

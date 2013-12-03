@@ -21,7 +21,7 @@ class DBManagementTest extends PHPUnit_Framework_TestCase {
     public function getConnection()
     {
 
-        return $this->createDefaultDBConnection($pdo, ':memory:');
+       // return $this->createDefaultDBConnection($pdo, ':memory:');
     }
 
     /**
@@ -29,15 +29,12 @@ class DBManagementTest extends PHPUnit_Framework_TestCase {
      */
     public function getDataSet()
     {
-        return $this->createFlatXMLDataSet(dirname(__FILE__).'/_files/guestbook-seed.xml');
+       // return $this->createFlatXMLDataSet(dirname(__FILE__).'/_files/guestbook-seed.xml');
     }
 
     public function testCompareUserIfInTable1()
     {
-        $pdo = new PDO('mysql:host=localhost;dbname=wiki_contrib', 'wikicontrib', 'wiki007');
-        $uneContrib = "unecontrib";
-        $result = DBManagement::compareContributionIfInTable($uneContrib, $pdo);
-        $this->assertFalse($result);
+
     }
 
 
