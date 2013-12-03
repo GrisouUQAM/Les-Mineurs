@@ -49,18 +49,22 @@ class DBManagement {
   
   public static function compareUserIfInTable($username,$dataBase) {
       echo "av compare prepare<br>";
-      $result = $dataBase -> query("SELECT Count(ID) FROM contributor where username =:" . $username);
+      $result = $dataBase -> query("SELECT COUNT(*) FROM contributor WHERE contributor_username =".$username);
 
       echo "- Compare exec fait<br>";
     //$row_count = $result -> rowCount();
-      return ($result->fetchColumn()>0);
+      if(!$result){
+          print_r($dataBase->errorInfo());
+      }
+      $count = $result->rowCount();
+      return ($count>0);
   }
   
   public static function insertUserIntoTable($usernameToInsert, $dataBase) {
       echo " |Insert av if compare<br>";
     if (!DBManagement::compareUserIfInTable($usernameToInsert, $dataBase)) {
         echo " |Insert av execute<br>";
-        $result = $dataBase -> prepare("INSERT INTO contributor(username) VALUES(:username)");
+        $result = $dataBase -> prepare("INSERT INTO contributor_username(username) VALUES(:username)");
         echo " |Insert av bind<br>";
         $result->bindParam(":username",$username);
         echo " |Insert av exec2<br>";
@@ -71,7 +75,7 @@ class DBManagement {
   }
         
   public static function retrieveUserID($username, $dataBase) {
-       $result = $dataBase -> prepare('SELECT ID FROM contributor WHERE username =' . $username);
+       $result = $dataBase -> prepare('SELECT ID FROM contributor_username WHERE username =' . $username);
        $result->execute();
        $row_count = $result -> rowcount();
        return ($row_count == 0) ? null : $result->fetch() ;
