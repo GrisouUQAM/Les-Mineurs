@@ -17,7 +17,8 @@ class DBManagement {
   
   public static function compareContributionIfInTable($uneContrib, $dataBase) {
     
-    $result = $dataBase -> query('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
+    $result =  $dataBase -> prepare('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
+    $result->execute();
     $row_count = $result -> rowCount();
     return !($row_count == 0);
   }
@@ -28,14 +29,14 @@ class DBManagement {
 ****************************************************************/ 
   public static function insertContributionIntoTable($uneContrib, $dataBase){
     
-    if (!compareContributionIfInTable($uneContrib)){
+    if (!DBManagement::compareContributionIfInTable($uneContrib, $dataBase)){
       
       $contributionIDToInsert = $uneContrib->getPagesId();
       $contributionOldVersionToInsert = $uneContrib->getOldVersion();
       $contributionUserVersionToInsert = $uneContrib->getUserVersion();
       $contributionUsertimestampToInsert = $uneContrib->getUsertimestamp();
       $contributionWebsiteToInsert = $uneContrib->getWebsite();
-      $contributorID = $uneContrib->getID();
+      $contributorID = $uneContrib->getUserID();
 
 
         $dataBase -> exec("INSERT INTO contributions('ID','page_id','rev_id','parent_id','time','website') VALUES('" . $contributorID . "','" . $contributionIDToInsert . "','" . $contributionUserVersionToInsert . "','" . $contributionOldVersionToInsert . "','" . $contributionUsertimestampToInsert . "','" . $contributionWebsiteToInsert . "')");
@@ -47,21 +48,23 @@ class DBManagement {
   
   
   public static function compareUserIfInTable($username,$dataBase) {
-    $result = $dataBase -> query('SELECT ID FROM contributor where username =' . $username);
+    $result = $dataBase -> prepare('SELECT ID FROM contributor where username =' . $username);
+    $result->execute();
     $row_count = $result -> rowCount();
       return !($row_count == 0);
   }
   
   public static function insertUserIntoTable($username, $dataBase) {
-    if (!compareUserIfInTable($username, $dataBase) {
+    if (!DBManagement::compareUserIfInTable($username, $dataBase)) {
     $dataBase -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
     }
   }
         
   public static function retrieveUserID($username, $dataBase) {
-          $result = $dataBase -> query('SELECT ID FROM contributor WHERE username =' . $username);
-          $row_count = $result -> rowcount();
-          return ($row_count == 0) ? null : $result->fetch() ;
+       $result = $dataBase -> prepare('SELECT ID FROM contributor WHERE username =' . $username);
+       $result->execute();
+       $row_count = $result -> rowcount();
+       return ($row_count == 0) ? null : $result->fetch() ;
   }
         
         
@@ -75,7 +78,7 @@ class DBManagement {
         
         public static function comparePostIfInTable($unPost, $dataBase) {
           
-          $resultTalk = $dataBase -> exec("SELECT * FROM talk where rev_id =".$postIDToInsert. "AND ID=".$userID."AND website=".$postWebsiteToInsert);
+          $resultTalk = $dataBase -> exec("SELECT * FROM talk where page_id =".$unPost->getPagesId(). "AND ID=".$unPost->getUserID()."AND website=".$unPost->getWebSite());
           $row_count = $resultTalk -> rowcount();
           return $row_count == 0;
         }
@@ -86,7 +89,7 @@ class DBManagement {
 ****************************************************************/ 
         public static function insertPostIntoTable($unPost, $dataBase){
           
-          if (!comparePostIfInTable($unPost)0) {
+          if (!comparePostIfInTable($unPost)) {
             $postIDToInsert = $unPost->getPagesId();
             $postWebsiteToInsert = $unPost->getWebsite();
             $userID = $unPost->getID();
@@ -95,5 +98,5 @@ class DBManagement {
                 $dataBase -> exec("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $postPost . "')");
           }
         }
-              
+    }
 ?>

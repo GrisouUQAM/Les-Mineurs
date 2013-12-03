@@ -10,6 +10,8 @@ $completeUrl.= $url;
 include_once( dirname(__FILE__) . '/diffFunctions.php');
 include_once(dirname(__FILE__) . '/ContributionInfo.php');
 include_once(dirname(__FILE__) . '/DBConnection.php');
+include_once(dirname(__FILE__) . '/DBManagement.php');
+
 $bdd = DBConnection::createConnection();
 
 function showGoogleDiff($text1, $text2) {
@@ -60,8 +62,8 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 
 $i=0;
 
-insertUserIntoTable($contributor,$bdd);
-$userID = verifyContributorID($contributor,$bdd);
+DBManagement::insertUserIntoTable($contributor,$bdd);
+$userID = DBManagement::retrieveUserID($contributor,$bdd);
 
 foreach ($usercontributions as $contribution) {
 
@@ -81,9 +83,9 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $uneContrib = new ContributionInfo($UserID, $wikiurl ,$pagesId, $oldVersion, $userVersion, $usertimestamp);
+    $uneContrib = new ContributionInfo($userID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp);
     
-    insertContributionIntoTable($uneContrib,$bdd);
+    DBManagement::insertContributionIntoTable($uneContrib,$bdd);
 	
 	$oldRevisionContent = $completeUrl."/w/api.php?action=parse&format=json&oldid=".$oldVersion."&prop=text";
 	$jsonOld = file_get_contents($oldRevisionContent, true);
