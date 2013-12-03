@@ -1,18 +1,11 @@
 <?php
 require_once "PHPUnit/Extensions/Database/TestCase.php";
-include_once (dirname(__FILE__) . '/DBManagement.php');
-include_once (dirname(__FILE__) . '/ContributionInfo.php');
-include_once (dirname(__FILE__) . '/PostInfo.php');
+include_once ('../src/DBManagement.php');
+include_once ('../src/PostInfo.php');
+include_once ('../src/ContributionInfo.php');
 
-class DBManagementTest extends PHPUnit_Framework_TestCase {
-
-
-    public function setUp(){
-        require_once "PHPUnit/Extensions/Database/TestCase.php";
-        include_once ('../src/DBManagement.php');
-        include_once ('../src/PostInfo.php');
-        $pdo = null;
-    }
+class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
+    static private $pdo = null;
 
 
     /**
@@ -20,8 +13,8 @@ class DBManagementTest extends PHPUnit_Framework_TestCase {
      */
     public function getConnection()
     {
-
-       // return $this->createDefaultDBConnection($pdo, ':memory:');
+       self::$pdo = new PDO('mysql:host=localhost;dbname=wiki_contribTest', 'wikicontrib', 'wiki007');
+        return this->createDefaultDBConnection(self::$pdo, ':wiki_contribTest:');
     }
 
     /**
