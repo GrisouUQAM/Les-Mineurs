@@ -13,6 +13,7 @@ include_once(dirname(__FILE__) . '/DBConnection.php');
 include_once(dirname(__FILE__) . '/DBManagement.php');
 
 $bdd = DBConnection::createConnection();
+echo "bdd fait<br>";
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
@@ -61,9 +62,12 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 
 
 $i=0;
+echo $contributor."<br>";
 
 DBManagement::insertUserIntoTable($contributor,$bdd);
+echo "insert fait";
 $userID = DBManagement::retrieveUserID($contributor,$bdd);
+echo "retrive fait";
 
 foreach ($usercontributions as $contribution) {
 

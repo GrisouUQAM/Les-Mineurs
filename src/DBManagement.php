@@ -48,15 +48,25 @@ class DBManagement {
   
   
   public static function compareUserIfInTable($username,$dataBase) {
-    $result = $dataBase -> prepare('SELECT ID FROM contributor where username =' . $username);
-    $result->execute();
-    $row_count = $result -> rowCount();
-      return !($row_count == 0);
+      echo "av compare prepare<br>";
+      $result = $dataBase -> query("SELECT Count(ID) FROM contributor where username =:" . $username);
+
+      echo "- Compare exec fait<br>";
+    //$row_count = $result -> rowCount();
+      return ($result->fetchColumn()>0);
   }
   
-  public static function insertUserIntoTable($username, $dataBase) {
-    if (!DBManagement::compareUserIfInTable($username, $dataBase)) {
-    $dataBase -> exec("INSERT INTO contributor('username') VALUES('" . $username . "')");
+  public static function insertUserIntoTable($usernameToInsert, $dataBase) {
+      echo " |Insert av if compare<br>";
+    if (!DBManagement::compareUserIfInTable($usernameToInsert, $dataBase)) {
+        echo " |Insert av execute<br>";
+        $result = $dataBase -> prepare("INSERT INTO contributor(username) VALUES(:username)");
+        echo " |Insert av bind<br>";
+        $result->bindParam(":username",$username);
+        echo " |Insert av exec2<br>";
+        $username = $userNameToInsert;
+        $result -> execute();
+        echo " |Insert execute fait<br>";
     }
   }
         
