@@ -4,7 +4,7 @@ class DBConnection{
     public static function createConnection(){
         try
         {
-            return new PDO('mysql:host=localhost;dbname=wiki_contrib', 'wikicontrib', 'wiki007');
+            return new PDO("mysql:host=localhost;dbname=wiki_contrib;charset=utf8", 'wikicontrib', 'wiki007');
         }
         catch (Exception $e)
         {

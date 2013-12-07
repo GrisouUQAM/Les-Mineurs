@@ -49,12 +49,11 @@ class DBManagement {
   
   public static function compareUserIfInTable($username,$dataBase) {
       echo "av compare prepare<br>";
-      $result = $dataBase -> query("SELECT COUNT(*) FROM contributor WHERE contributor_username =".$username);
-
+      $result = $dataBase -> query("SELECT * FROM contributor WHERE contributor_username LIKE '$username'");
       echo "- Compare exec fait<br>";
     //$row_count = $result -> rowCount();
       if(!$result){
-          print_r($dataBase->errorInfo());
+         print_r($dataBase->errorInfo());
       }
       $count = $result->rowCount();
       return ($count>0);
