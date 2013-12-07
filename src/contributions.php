@@ -67,7 +67,7 @@ echo $contributor."<br>";
 DBManagement::insertUserIntoTable($contributor,$bdd);
 echo "insert fait";
 $userID = DBManagement::retrieveUserID($contributor,$bdd);
-echo "retrive fait";
+$realuserID = $userID[0];
 
 foreach ($usercontributions as $contribution) {
 
@@ -87,7 +87,7 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $uneContrib = new ContributionInfo($userID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp);
+    $uneContrib = new ContributionInfo($realuserID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp);
     
     DBManagement::insertContributionIntoTable($uneContrib,$bdd);
 	
@@ -193,8 +193,14 @@ $result .= '<h1>Talks which '.$contributor.' contributed to</h1>
 foreach ($userTalks as $talk) {
   $pageId = $talk['pageid'];
   $revisionId = $talk['revid'];
-  
-  $unPost = new PostInfo($UserID, $wikiurl ,$pageId, $revisionId);
+
+//echo "\r\n";
+//echo "DEBUG contributions.php";
+//echo "\r\n";
+//echo "DEBUG UserID $userID";
+//echo "\r\n";
+
+  $unPost = new PostInfo($realuserID, $wikiurl ,$pageId, $revisionId);
   DBManagement::insertPostIntoTable($unPost,$bdd);
 
 	$result .= '<tr><td>'.$talk['title'].'</td>';

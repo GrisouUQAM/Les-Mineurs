@@ -62,14 +62,14 @@ class DBManagement {
   public static function insertUserIntoTable($usernameToInsert, $dataBase) {
       echo " |Insert av if compare<br>";
     if (!DBManagement::compareUserIfInTable($usernameToInsert, $dataBase)) {
-        echo " |Insert av execute<br>";
+        //echo " |Insert av execute<br>";
         $result = $dataBase -> prepare("INSERT INTO contributor(contributor_username) VALUES(:username)");
-        echo " |Insert av bind<br>";
+        //echo " |Insert av bind<br>";
         $result->bindParam(":username",$username);
-        echo " |Insert av exec2<br>";
+        //echo " |Insert av exec2<br>";
         $username = $usernameToInsert;
         $result -> execute();
-        echo " |Insert execute fait<br>";
+        //echo " |Insert execute fait<br>";
     }
   }
         
@@ -91,9 +91,27 @@ class DBManagement {
         
         public static function comparePostIfInTable($unPost, $dataBase) {
           
-          $resultTalk = $dataBase -> exec("SELECT * FROM talk where page_id =".$unPost->getPagesId(). "AND ID=".$unPost->getUserID()."AND website=".$unPost->getWebSite());
-          $row_count = $resultTalk -> rowcount();
-          return $row_count == 0;
+          //$resultTalk = $dataBase -> exec("SELECT * FROM talk where page_id =".$unPost->getPagesId(). "AND ID=".$unPost->getUserID()."AND website=".$unPost->getWebSite());
+          //$row_count = $resultTalk -> rowcount();
+          //return $row_count == 0;
+
+          $unPostPID = $unPost->getPagesId();
+          $unPostUID = $unPost->getUserID();
+          $unPostWEB = $unPost->getWebSite();
+
+//          echo "PID\n";
+//          echo $unPostPID;
+//          echo "UID\n";
+//          echo $unPostUID;
+//          echo "WEB\n";
+//          echo $unPostWEB;
+
+          $resultTalk = $dataBase -> exec("SELECT * FROM talk WHERE page_id='$unPostPID' AND ID='$unPostUID' AND website='$unPostWEB'");
+            if(!$resultTalk){
+                print_r($dataBase->errorInfo());
+            }
+            $count = $resultTalk->rowCount();
+            return ($count>0);
         }
         
         
@@ -102,7 +120,7 @@ class DBManagement {
 ****************************************************************/ 
         public static function insertPostIntoTable($unPost, $dataBase){
           
-          if (!comparePostIfInTable($unPost)) {
+          if (!DBManagement::comparePostIfInTable($unPost, $dataBase)) {
             $postIDToInsert = $unPost->getPagesId();
             $postWebsiteToInsert = $unPost->getWebsite();
             $userID = $unPost->getID();
