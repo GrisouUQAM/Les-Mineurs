@@ -49,7 +49,7 @@ class DBManagement {
   
   public static function compareUserIfInTable($username,$dataBase) {
       echo "av compare prepare<br>";
-      $result = $dataBase -> query("SELECT * FROM contributor WHERE contributor_username LIKE '$username'");
+      $result = $dataBase -> query("SELECT * FROM contributor WHERE contributor_username='$username'");
       echo "- Compare exec fait<br>";
     //$row_count = $result -> rowCount();
       if(!$result){
@@ -74,7 +74,7 @@ class DBManagement {
   }
         
   public static function retrieveUserID($username, $dataBase) {
-       $result = $dataBase -> prepare('SELECT ID FROM contributor WHERE contributor_username =' . $username);
+       $result = $dataBase -> prepare("SELECT ID FROM contributor WHERE contributor_username='$username'");
        $result->execute();
        $row_count = $result -> rowcount();
        return ($row_count == 0) ? null : $result->fetch() ;

@@ -195,7 +195,7 @@ foreach ($userTalks as $talk) {
   $revisionId = $talk['revid'];
   
   $unPost = new PostInfo($UserID, $wikiurl ,$pageId, $revisionId);
-  insertPostIntoTable($unPost,$bdd);
+  DBManagement::insertPostIntoTable($unPost,$bdd);
 
 	$result .= '<tr><td>'.$talk['title'].'</td>';
 
