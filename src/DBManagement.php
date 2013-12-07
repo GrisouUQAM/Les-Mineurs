@@ -67,7 +67,7 @@ class DBManagement {
         echo " |Insert av bind<br>";
         $result->bindParam(":username",$username);
         echo " |Insert av exec2<br>";
-        $username = $userNameToInsert;
+        $username = $usernameToInsert;
         $result -> execute();
         echo " |Insert execute fait<br>";
     }
