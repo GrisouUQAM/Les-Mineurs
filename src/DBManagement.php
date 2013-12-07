@@ -64,7 +64,7 @@ class DBManagement {
       echo " |Insert av if compare<br>";
     if (!DBManagement::compareUserIfInTable($usernameToInsert, $dataBase)) {
         echo " |Insert av execute<br>";
-        $result = $dataBase -> prepare("INSERT INTO contributor_username(username) VALUES(:username)");
+        $result = $dataBase -> prepare("INSERT INTO contributor(contributor_username) VALUES(:username)");
         echo " |Insert av bind<br>";
         $result->bindParam(":username",$username);
         echo " |Insert av exec2<br>";
@@ -75,7 +75,7 @@ class DBManagement {
   }
         
   public static function retrieveUserID($username, $dataBase) {
-       $result = $dataBase -> prepare('SELECT ID FROM contributor_username WHERE username =' . $username);
+       $result = $dataBase -> prepare('SELECT ID FROM contributor WHERE contributor_username =' . $username);
        $result->execute();
        $row_count = $result -> rowcount();
        return ($row_count == 0) ? null : $result->fetch() ;
