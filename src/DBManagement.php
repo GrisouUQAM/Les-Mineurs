@@ -60,6 +60,13 @@ class DBManagement {
             $contributorID = $uneContrib->getUserID();
 
 
+// echo "PID\n";
+//echo $unPostPID;
+//echo "UID\n";
+// echo $unPostUID;
+//echo "WEB\n";
+// echo $unPostWEB;
+
 
         $result = $dataBase ->prepare("INSERT INTO talk(ID,page_id,rev_id,parent_id,time,website) VALUES(:contributorID,:contributionIDToInsert,:contributionUserVersionToInsert,:contributionOldVersionToInsert,:contributionUsertimestampToInsert,:contributionWebsiteToInsert)");
         $result->execute(array(':contributorID' => $contributorID, ':contributionIDToInsert' => $contributionIDToInsert, ':contributionUserVersionToInsert' => $contributionUserVersionToInsert, ':contributionOldVersionToInsert' => $contributionOldVersionToInsert, ':contributionUsertimestampToInsert' => $contributionUsertimestampToInsert, ':contributionWebsiteToInsert' => $contributionWebsiteToInsert));
@@ -130,19 +137,34 @@ class DBManagement {
           $unPostPID = $unPost->getPagesId();
           $unPostUID = $unPost->getUserID();
           $unPostWEB = $unPost->getWebSite();
+          $unPostRID = $unPost->getRevId();
 
-//          echo "PID\n";
-//          echo $unPostPID;
-//          echo "UID\n";
-//          echo $unPostUID;
-//          echo "WEB\n";
-//          echo $unPostWEB;
+//       echo "\n";
+//       echo "PID\n";
+//       echo $unPostPID;
+//       echo "\n";
+//       echo "UID\n";
+//       echo $unPostUID;
+//       echo "\n";
+//       echo "WEB\n";
+//       echo $unPostWEB;
+//       echo "\n";
+//       echo $unPostRID;
+//       echo "\n";
 
-          $result = $dataBase -> query("SELECT * FROM talk WHERE page_id='$unPostPID' AND ID='$unPostUID' AND website='$unPostWEB'");
+          $result = $dataBase -> prepare("SELECT * FROM talk WHERE rev_id='$unPostRID' AND page_id='$unPostPID' AND ID='$unPostUID' AND website='$unPostWEB'");
+          $result->execute();
+
             if(!$result){
                 print_r($dataBase->errorInfo());
             }
-            $count = $result->rowCount();
+
+            $count = $result->rowcount();
+
+//       echo "COUNT\n";
+//       echo $count;
+//       echo "\n";
+
             return ($count>0);
         }
         
@@ -159,7 +181,7 @@ class DBManagement {
             $revID = $unPost->getRevID();
 
                 //$dataBase -> prepare("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $revID . "')");
-             $result = $dataBase ->prepare("INSERT INTO talk(ID,website,page_id,rev_id) VALUES(:postIDToInsert,:postWebsiteToInsert,:userID,:revID)");
+             $result = $dataBase ->prepare("INSERT INTO talk(ID,website,page_id,rev_id) VALUES(:userID,:postWebsiteToInsert,:postIDToInsert,:revID)");
              $result->execute(array(':postIDToInsert' => $postIDToInsert, ':postWebsiteToInsert' => $postWebsiteToInsert, ':userID' => $userID, ':revID' => $revID));
               if(!$result){
                   print_r($dataBase->errorInfo());
