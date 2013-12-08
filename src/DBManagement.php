@@ -107,11 +107,11 @@ class DBManagement {
 //          echo "WEB\n";
 //          echo $unPostWEB;
 
-          $resultTalk = $dataBase -> query("SELECT * FROM talk WHERE page_id='$unPostPID' AND ID='$unPostUID' AND website='$unPostWEB'");
-            if(!$resultTalk){
+          $result = $dataBase -> query("SELECT * FROM talk WHERE page_id='$unPostPID' AND ID='$unPostUID' AND website='$unPostWEB'");
+            if(!$result){
                 print_r($dataBase->errorInfo());
             }
-            $count = $resultTalk->rowCount();
+            $count = $result->rowCount();
             return ($count>0);
         }
         
@@ -127,7 +127,15 @@ class DBManagement {
             $userID = $unPost->getUserID();
             $revID = $unPost->getRevID();
 
-                $dataBase -> exec("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $revID . "')");
+                //$dataBase -> prepare("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $revID . "')");
+             $result = $dataBase ->prepare("INSERT INTO talk(ID,website,page_id,rev_id) VALUES(:postIDToInsert,:postWebsiteToInsert,:userID,:revID)");
+             $result->execute(array(':postIDToInsert' => $postIDToInsert, ':postWebsiteToInsert' => $postWebsiteToInsert, ':userID' => $userID, ':revID' => $revID));
+              if(!$result){
+                  print_r($dataBase->errorInfo());
+              }
+              $count = $result->rowCount();
+              return ($count>0);
+
           }
         }
     }
