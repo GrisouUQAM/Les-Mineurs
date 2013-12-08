@@ -77,7 +77,8 @@ class DBManagement {
        $result = $dataBase -> prepare("SELECT ID FROM contributor WHERE contributor_username='$username'");
        $result->execute();
        $row_count = $result -> rowcount();
-       return ($row_count == 0) ? null : $result->fetch() ;
+       $theResult = $result->fetch();
+       return ($row_count == 0) ? null : $theResult[0] ;
   }
         
         
