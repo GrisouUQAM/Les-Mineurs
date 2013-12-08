@@ -107,7 +107,7 @@ class DBManagement {
 //          echo "WEB\n";
 //          echo $unPostWEB;
 
-          $resultTalk = $dataBase -> exec("SELECT * FROM talk WHERE page_id='$unPostPID' AND ID='$unPostUID' AND website='$unPostWEB'");
+          $resultTalk = $dataBase -> query("SELECT * FROM talk WHERE page_id='$unPostPID' AND ID='$unPostUID' AND website='$unPostWEB'");
             if(!$resultTalk){
                 print_r($dataBase->errorInfo());
             }
@@ -124,10 +124,10 @@ class DBManagement {
           if (!DBManagement::comparePostIfInTable($unPost, $dataBase)) {
             $postIDToInsert = $unPost->getPagesId();
             $postWebsiteToInsert = $unPost->getWebsite();
-            $userID = $unPost->getID();
-            $postPost = $unPost->getPost();
+            $userID = $unPost->getUserID();
+            $revID = $unPost->getRevID();
 
-                $dataBase -> exec("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $postPost . "')");
+                $dataBase -> exec("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $revID . "')");
           }
         }
     }
