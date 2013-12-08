@@ -60,7 +60,8 @@ Sert à créer un objet de type PDO de connection a la base de donnée.
 **Utilisation**
 Créer un objet et appeler la fonction createConnection() pour faire une connection à la base de donnée.
 Exemple :
-> $maConnectionALaBaseDeDonnee = createConnection();
+
+    $maConnectionALaBaseDeDonnee = createConnection();
 
 On peut ensuite utilisé cette objet pour faire les requêtes dans la base de donnée et pour l'utilisation de la classe DBManagement.php.
 
