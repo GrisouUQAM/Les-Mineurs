@@ -62,6 +62,21 @@ Créer un objet et appeler la fonction createConnection() pour faire une connect
 Exemple :
 > $maConnectionALaBaseDeDonnee = createConnection();
 
+On peut ensuite utilisé cette objet pour faire les requêtes dans la base de donnée et pour l'utilisation de la classe DBManagement.php.
+
+Classe DBManagement.php
+-------------
+**Description**
+Classe servant à faire la gestion, entrée et sortie de la base de données.
+
+**Utilisation**
+Méthode pour utilisation externe :
+
+- insertUserIntoTable($usernameToInsert, $dataBase) : Insère un nouvel utilisateur dans la base de donnée s'il n'est pas déjà présent. Prend en paramètre le nom d'un utilisateur a insérer et un objet créé avec la fonction createConnection() de la classe DBConnection.
+- retrieveUserID($username, $dataBase) : Retourne l'ID d'un utilisateur tel que représenté dans la base de donnée interne. Prend en paramètre le nom d'un utilisateur a insérer et un objet créé avec la fonction createConnection() de la classe DBConnection.
+- insertContributionIntoTable($uneContrib, $dataBase) : Insère une contribution dans la base de donnée si elle n'est pas déjà présente. Prend en paramètre un objet de type ContributionInfo et un objet créé avec la fonction createConnection() de la classe DBConnection.
+- insertPostIntoTable($unPost, $dataBase) : Insère un post dans la base de donnée s'il n'est pas déjà présent. Prend en paramètre un objet de type PostInfo et un objet créé avec la fonction createConnection() de la classe DBConnection.
+
 
 Test Unitaire
 -------------
