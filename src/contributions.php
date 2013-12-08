@@ -87,7 +87,7 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $uneContrib = new ContributionInfo($realuserID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp);
+    $uneContrib = new ContributionInfo($realuserID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp, $contributor);
     
     DBManagement::insertContributionIntoTable($uneContrib,$bdd);
 	
