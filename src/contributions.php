@@ -65,9 +65,9 @@ $i=0;
 echo $contributor."<br>";
 
 DBManagement::insertUserIntoTable($contributor,$bdd);
-echo "insert fait";
+echo "insert fait<br>";
 $userID = DBManagement::retrieveUserID($contributor,$bdd);
-$realuserID = $userID[0];
+echo "userId OK<br>";
 
 foreach ($usercontributions as $contribution) {
 
@@ -87,9 +87,11 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $uneContrib = new ContributionInfo($realuserID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp, $contributor);
+    $uneContrib = new ContributionInfo($userID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp, $contributor);
+    echo "uneContrib ca va<br>";
     
     DBManagement::insertContributionIntoTable($uneContrib,$bdd);
+    echo "inserer la contribution c'est ok<br>";
 	
 	$oldRevisionContent = $completeUrl."/w/api.php?action=parse&format=json&oldid=".$oldVersion."&prop=text";
 	$jsonOld = file_get_contents($oldRevisionContent, true);
@@ -200,7 +202,7 @@ foreach ($userTalks as $talk) {
 //echo "DEBUG UserID $userID";
 //echo "\r\n";
 
-  $unPost = new PostInfo($realuserID, $wikiurl ,$pageId, $revisionId);
+  $unPost = new PostInfo($userID, $wikiurl ,$pageId, $revisionId);
   DBManagement::insertPostIntoTable($unPost,$bdd);
 
 	$result .= '<tr><td>'.$talk['title'].'</td>';
@@ -213,4 +215,4 @@ $result .= '</table>
 
 print $result;
 
-
+?>
