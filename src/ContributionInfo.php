@@ -13,7 +13,7 @@ class ContributionInfo {
     private $usertimestamp;
     private $userID;
 
-    function __construct($userID, $website,  $pagesId, $oldVersion, $userVersion, $usertimestamp )
+    function __construct($userID, $website,  $pagesId, $oldVersion, $userVersion, $usertimestamp, $userName)
     {
         $this->userID = $userID;
         $this->website = $website;
@@ -21,6 +21,7 @@ class ContributionInfo {
         $this->oldVersion = $oldVersion;
         $this->userVersion = $userVersion;
         $this->usertimestamp = $usertimestamp;
+        $this->userName = $userName;
     }
 
     public function getUserName(){return $this->userName;}
