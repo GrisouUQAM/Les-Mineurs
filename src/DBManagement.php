@@ -31,12 +31,20 @@ class DBManagement {
     
     if (!DBManagement::compareContributionIfInTable($uneContrib, $dataBase)){
       
-      $contributionIDToInsert = {$uneContrib->ContributionInfo::getPagesId()};
-      $contributionOldVersionToInsert = {$uneContrib->ContributionInfo::getOldVersion()};
-      $contributionUserVersionToInsert = {$uneContrib->ContributionInfo::getUserVersion()};
-      $contributionUsertimestampToInsert = {$uneContrib->ContributionInfo::getUsertimestamp()};
-      $contributionWebsiteToInsert = {$uneContrib->ContributionInfo::getWebsite()};
-      $contributorID = {$uneContrib->ContributionInfo::getUserID()};
+//      $contributionIDToInsert = {$uneContrib->ContributionInfo::getPagesId()};
+//      $contributionOldVersionToInsert = {$uneContrib->ContributionInfo::getOldVersion()};
+//      $contributionUserVersionToInsert = {$uneContrib->ContributionInfo::getUserVersion()};
+//      $contributionUsertimestampToInsert = {$uneContrib->ContributionInfo::getUsertimestamp()};
+//      $contributionWebsiteToInsert = {$uneContrib->ContributionInfo::getWebsite()};
+//      $contributorID = {$uneContrib->ContributionInfo::getUserID()};
+
+
+            $contributionIDToInsert = $uneContrib->getPagesId();
+            $contributionOldVersionToInsert = $uneContrib->getOldVersion();
+            $contributionUserVersionToInsert = $uneContrib->getUserVersion();
+            $contributionUsertimestampToInsert = $uneContrib->getUsertimestamp();
+            $contributionWebsiteToInsert = $uneContrib->getWebsite();
+            $contributorID = $uneContrib->getUserID();
 
 
         $dataBase -> exec("INSERT INTO contributions('ID','page_id','rev_id','parent_id','time','website') VALUES('" . $contributorID . "','" . $contributionIDToInsert . "','" . $contributionUserVersionToInsert . "','" . $contributionOldVersionToInsert . "','" . $contributionUsertimestampToInsert . "','" . $contributionWebsiteToInsert . "')");
