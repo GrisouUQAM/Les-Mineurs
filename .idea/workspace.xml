@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef5dac0c-ecc7-47c2-aed3-d7b593271626" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBManagement.php" afterPath="$PROJECT_DIR$/src/DBManagement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/contributions.php" afterPath="$PROJECT_DIR$/src/contributions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/DBManagementTest.php" afterPath="$PROJECT_DIR$/test/DBManagementTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Les-Mineurs.iws" />
@@ -31,10 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DBManagementTest.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DBManagementTest.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/DBManagementTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="7" selection-start="617" selection-end="617" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="645">
+            <state line="14" column="71" selection-start="488" selection-end="488" vertical-scroll-proportion="0.14285715" vertical-offset="150" max-vertical-offset="765">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wiki_contrib_test.sql" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/wiki_contrib_test.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="0" selection-start="653" selection-end="653" vertical-scroll-proportion="-4.22" vertical-offset="134" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
@@ -43,7 +51,7 @@
       <file leaf-file-name="wiki_contrib.sql" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/wiki_contrib.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="58" selection-start="1876" selection-end="1876" vertical-scroll-proportion="-9.12" vertical-offset="459" max-vertical-offset="1110">
+            <state line="62" column="56" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.0" vertical-offset="474" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
@@ -52,16 +60,25 @@
       <file leaf-file-name="Documentation.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Documentation.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="21" selection-start="402" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+            <state line="79" column="0" selection-start="3246" selection-end="3246" vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="1575">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBManagement.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DBManagement.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DBManagement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="14" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.2244898" vertical-offset="693" max-vertical-offset="1770">
+            <state line="72" column="5" selection-start="3099" selection-end="3099" vertical-scroll-proportion="-0.0" vertical-offset="1080" max-vertical-offset="2100">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContributionInfoTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/ContributionInfoTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="180">
               <folding />
             </state>
           </provider>
@@ -79,7 +96,7 @@
       <file leaf-file-name="DBConnection.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DBConnection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="94" selection-start="190" selection-end="190" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="345">
+            <state line="6" column="94" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="345">
               <folding />
             </state>
           </provider>
@@ -88,7 +105,7 @@
       <file leaf-file-name="ContributionInfo.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ContributionInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="44" selection-start="731" selection-end="731" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="630">
+            <state line="28" column="44" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
@@ -97,7 +114,7 @@
       <file leaf-file-name="contributions.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/contributions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="27" selection-start="1900" selection-end="1900" vertical-scroll-proportion="-9.375" vertical-offset="765" max-vertical-offset="3240">
+            <state line="72" column="0" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="3360">
               <folding />
             </state>
           </provider>
@@ -126,11 +143,12 @@
         <option value="$PROJECT_DIR$/src/ContributionInfo.php" />
         <option value="$PROJECT_DIR$/src/Documentation.md" />
         <option value="$PROJECT_DIR$/src/composer.json" />
-        <option value="$PROJECT_DIR$/test/DBManagementTest.php" />
         <option value="$PROJECT_DIR$/src/wiki_contrib.sql" />
         <option value="$PROJECT_DIR$/src/DBConnection.php" />
         <option value="$PROJECT_DIR$/src/contributions.php" />
         <option value="$PROJECT_DIR$/src/DBManagement.php" />
+        <option value="$PROJECT_DIR$/test/DBManagementTest.php" />
+        <option value="$PROJECT_DIR$/test/wiki_contrib_test.sql" />
       </list>
     </option>
   </component>
@@ -241,12 +259,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="Configurable.PHP.PHPUnit" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="Configurable.PHP.PHPUnit" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="PHPUnit.DBManagementTest">
     <configuration default="false" name="DBManagementTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -314,11 +332,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25234374" sideWeight="0.7620358" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25234374" sideWeight="0.6808803" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37551582" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23796424" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31911966" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="100" width="1080" height="600" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -343,11 +361,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/diffFunctions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1155" />
@@ -373,11 +386,6 @@
         <state line="652" column="28" selection-start="16727" selection-end="16727" vertical-scroll-proportion="-0.2565445" vertical-offset="9199" max-vertical-offset="13800" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/ContributionInfoTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="676" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vendor/phpunit/phpunit/PHPUnit/Framework/TestCase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="785" column="19" selection-start="21262" selection-end="21262" vertical-scroll-proportion="0.33333334" vertical-offset="10987" max-vertical-offset="27870" />
@@ -392,49 +400,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wiki_contrib.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="58" selection-start="1876" selection-end="1876" vertical-scroll-proportion="-9.12" vertical-offset="459" max-vertical-offset="1110">
+        <state line="62" column="56" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.0" vertical-offset="474" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ContributionInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="44" selection-start="731" selection-end="731" vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="630">
+        <state line="28" column="44" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Documentation.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="21" selection-start="402" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/DBManagementTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="7" selection-start="617" selection-end="617" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="645">
+        <state line="79" column="0" selection-start="3246" selection-end="3246" vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="1575">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBConnection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="94" selection-start="190" selection-end="190" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="345">
+        <state line="6" column="94" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="345">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/contributions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="27" selection-start="1900" selection-end="1900" vertical-scroll-proportion="-9.375" vertical-offset="765" max-vertical-offset="3240">
+        <state line="72" column="0" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="3360">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBManagement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="14" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.2244898" vertical-offset="693" max-vertical-offset="1770">
+        <state line="72" column="5" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="2100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ContributionInfoTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/wiki_contrib_test.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="653" selection-end="653" vertical-scroll-proportion="-4.22" vertical-offset="134" max-vertical-offset="1110">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/DBManagementTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="71" selection-start="488" selection-end="488" vertical-scroll-proportion="0.14285715" vertical-offset="150" max-vertical-offset="765">
           <folding />
         </state>
       </provider>

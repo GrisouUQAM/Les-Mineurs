@@ -7,14 +7,13 @@ include_once ('../src/ContributionInfo.php');
 class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
     static private $pdo = null;
 
-
     /**
      * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
      */
     public function getConnection()
     {
-       self::$pdo = new PDO('mysql:host=localhost;dbname=wiki_contribTest', 'wikicontrib', 'wiki007');
-        return this->createDefaultDBConnection(self::$pdo, ':wiki_contribTest:');
+       self::$pdo = new PDO('mysql:host=localhost;dbname=wiki_contrib_test', 'wikicontrib', 'wiki007');
+       return PHPUnit_Extensions_Database_TestCase::createDefaultDBConnection(self::$pdo, ':wiki_contribTest:');
     }
 
     /**
@@ -27,12 +26,21 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
 
     public function testCompareUserIfInTable1()
     {
-
+       // compareUserIfInTable($username,$dataBase);
     }
 
+
+    public function testNewEntry()
+    {
+        $this->assertEquals(0, $this->getConnection()->getRowCount('contributor'));
+
+    }
 
 
 }
 
 ?>
- 
+class LivredorTest extends PHPUnit_Extensions_Database_TestCase
+{
+
+}
