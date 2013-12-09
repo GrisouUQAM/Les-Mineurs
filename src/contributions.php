@@ -60,9 +60,6 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 				</tr>';
 
 
-$i=0;                                                       // ------- | GENTIL-AJOUT Les-Mineurs | --------
-
-
 DBManagement::insertUserIntoTable($contributor,$bdd);       // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
 $userID = DBManagement::retrieveUserID($contributor,$bdd);  // ------- | GENTIL-AJOUT Les-Mineurs | --------
@@ -166,7 +163,6 @@ foreach ($usercontributions as $contribution) {
 	$result .= '<td>'.$analysisTable.'</td>';
 	$result .= '<td>Score quelconque</td></tr>';
 
-    $i++;                                           // ------- | GENTIL-AJOUT Les-Mineurs | --------
 }
 
 $result .= '</table>
