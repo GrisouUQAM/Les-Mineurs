@@ -25,21 +25,6 @@ USE `wiki_contrib`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contributions`
---
-
-CREATE TABLE IF NOT EXISTS `contributions` (
-  `page_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `rev_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `parent_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `contrib_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `contributor`
 --
 
@@ -52,6 +37,24 @@ CREATE TABLE IF NOT EXISTS `contributor` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contributions`
+--
+
+CREATE TABLE IF NOT EXISTS `contributions` (
+  `page_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rev_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `parent_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `contrib_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ID` int(11) NOT NULL,
+  FOREIGN KEY (`ID`) REFERENCES contributor(`ID`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `talk`
 --
 
@@ -59,7 +62,9 @@ CREATE TABLE IF NOT EXISTS `talk` (
   `ID` int(11) NOT NULL,
   `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `page_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `rev_id` varchar(255) CHARACTER SET utf8 NOT NULL
+  `rev_id` varchar(255) CHARACTER SET utf8 NOT NULL,
+  FOREIGN KEY (`ID`) REFERENCES contributor(`ID`)
+    ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
