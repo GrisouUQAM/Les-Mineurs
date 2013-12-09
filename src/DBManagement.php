@@ -16,11 +16,7 @@ class DBManagement {
 *********************************************************/
   
   public static function compareContributionIfInTable($uneContrib, $dataBase) {
-    
-//   $result =  $dataBase -> prepare('SELECT * FROM contributions WHERE ID ='  . $uneContrib->getUserID() . ' AND timestamp =' . $uneContrib->getPagesID() . 'AND website =' . $uneContrib->getWebSite());
-//    $result->execute();
-//    $row_count = $result -> rowCount();
-//    return !($row_count == 0);
+
 
       $uneContribPID = $uneContrib->getPagesID();
       $uneContribUID = $uneContrib->getUserID();
@@ -62,7 +58,7 @@ class DBManagement {
         return ($count>0);
 
 
-        //$dataBase -> exec("INSERT INTO contributions('ID','page_id','rev_id','parent_id','time','website') VALUES('" . $contributorID . "','" . $contributionIDToInsert . "','" . $contributionUserVersionToInsert . "','" . $contributionOldVersionToInsert . "','" . $contributionUsertimestampToInsert . "','" . $contributionWebsiteToInsert . "')");
+
       
       
     }      
@@ -71,10 +67,9 @@ class DBManagement {
   
   
   public static function compareUserIfInTable($username,$dataBase) {
-      echo "av compare prepare<br>";
+
       $result = $dataBase -> query("SELECT * FROM contributor WHERE contributor_username='$username'");
-      echo "- Compare exec fait<br>";
-    //$row_count = $result -> rowCount();
+
       if(!$result){
          print_r($dataBase->errorInfo());
       }
@@ -83,7 +78,7 @@ class DBManagement {
   }
   
   public static function insertUserIntoTable($usernameToInsert, $dataBase) {
-      echo " |Insert av if compare<br>";
+
     if (!DBManagement::compareUserIfInTable($usernameToInsert, $dataBase)) {
         //echo " |Insert av execute<br>";
         $result = $dataBase -> prepare("INSERT INTO contributor(contributor_username) VALUES(:username)");
@@ -114,28 +109,11 @@ class DBManagement {
 *********************************************************/
         
         public static function comparePostIfInTable($unPost, $dataBase) {
-          
-          //$resultTalk = $dataBase -> exec("SELECT * FROM talk where page_id =".$unPost->getPagesId(). "AND ID=".$unPost->getUserID()."AND website=".$unPost->getWebSite());
-          //$row_count = $resultTalk -> rowcount();
-          //return $row_count == 0;
 
           $unPostPID = $unPost->getPagesId();
           $unPostUID = $unPost->getUserID();
           $unPostWEB = $unPost->getWebSite();
           $unPostRID = $unPost->getRevId();
-
-//       echo "\n";
-//       echo "PID\n";
-//       echo $unPostPID;
-//       echo "\n";
-//       echo "UID\n";
-//       echo $unPostUID;
-//       echo "\n";
-//       echo "WEB\n";
-//       echo $unPostWEB;
-//       echo "\n";
-//       echo $unPostRID;
-//       echo "\n";
 
           $result = $dataBase -> prepare("SELECT * FROM talk WHERE rev_id='$unPostRID' AND page_id='$unPostPID' AND ID='$unPostUID' AND website='$unPostWEB'");
           $result->execute();
@@ -145,11 +123,6 @@ class DBManagement {
             }
 
             $count = $result->rowcount();
-
-//       echo "COUNT\n";
-//       echo $count;
-//       echo "\n";
-
             return ($count>0);
         }
         
@@ -165,7 +138,7 @@ class DBManagement {
             $userID = $unPost->getUserID();
             $revID = $unPost->getRevID();
 
-                //$dataBase -> prepare("INSERT INTO talk('ID','website','page_id','post') VALUES('" . $userID . "','" . $postWebsiteToInsert . "','" . $postIDToInsert . "','" . $revID . "')");
+
              $result = $dataBase ->prepare("INSERT INTO talk(ID,website,page_id,rev_id) VALUES(:userID,:postWebsiteToInsert,:postIDToInsert,:revID)");
              $result->execute(array(':postIDToInsert' => $postIDToInsert, ':postWebsiteToInsert' => $postWebsiteToInsert, ':userID' => $userID, ':revID' => $revID));
               if(!$result){

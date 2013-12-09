@@ -196,12 +196,6 @@ foreach ($userTalks as $talk) {
   $pageId = $talk['pageid'];
   $revisionId = $talk['revid'];
 
-//echo "\r\n";
-//echo "DEBUG contributions.php";
-//echo "\r\n";
-//echo "DEBUG UserID $userID";
-//echo "\r\n";
-
   $unPost = new PostInfo($userID, $wikiurl ,$pageId, $revisionId);
   DBManagement::insertPostIntoTable($unPost,$bdd);
 
