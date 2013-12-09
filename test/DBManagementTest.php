@@ -21,26 +21,26 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
      */
     public function getDataSet()
     {
-       return $this->createFlatXMLDataSet(dirname(__FILE__).'/_files/guestbook-seed.xml');
+       return $this->createFlatXMLDataSet('./dataSets/wikiTable.xml');
+    }
+    /*
+        public function testCompareUserIfInTable1()
+        {
+            $this->assertEquals(1,compareUserIfInTable("gégé",self::$pdo));
+        }
+*/
+
+    public function testNewEntry()
+    {
+        $this->assertEquals(3, $this->getConnection()->getRowCount('contributor'));
+
     }
 
     public function testCompareUserIfInTable1()
     {
-       // compareUserIfInTable($username,$dataBase);
+        $this->assertEquals(1,DBManagement::compareUserIfInTable("gégé",self::$pdo));
     }
-
-
-    public function testNewEntry()
-    {
-        $this->assertEquals(0, $this->getConnection()->getRowCount('contributor'));
-
-    }
-
 
 }
 
 ?>
-class LivredorTest extends PHPUnit_Extensions_Database_TestCase
-{
-
-}
