@@ -79,14 +79,10 @@ class DBManagement
     {
 
         if (!DBManagement::compareUserIfInTable($usernameToInsert, $dataBase)) {
-            //echo " |Insert av execute<br>";
             $result = $dataBase->prepare("INSERT INTO contributor(contributor_username) VALUES(:username)");
-            //echo " |Insert av bind<br>";
             $result->bindParam(":username", $username);
-            //echo " |Insert av exec2<br>";
             $username = $usernameToInsert;
             $result->execute();
-            //echo " |Insert execute fait<br>";
         }
     }
 
@@ -137,7 +133,6 @@ class DBManagement
             $postWebsiteToInsert = $unPost->getWebsite();
             $userID = $unPost->getUserID();
             $revID = $unPost->getRevID();
-
 
             $result = $dataBase->prepare("INSERT INTO talk(ID,website,page_id,rev_id) VALUES(:userID,:postWebsiteToInsert,:postIDToInsert,:revID)");
             $result->execute(array(':postIDToInsert' => $postIDToInsert, ':postWebsiteToInsert' => $postWebsiteToInsert, ':userID' => $userID, ':revID' => $revID));
