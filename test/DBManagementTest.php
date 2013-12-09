@@ -25,7 +25,7 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
      * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
      */
     public function getConnection(){
-       self::$pdo = new PDO('mysql:host=localhost;dbname=wiki_contrib_test', 'wikicontrib', 'wiki007');
+       self::$pdo = new PDO('mysql:host=localhost;dbname=wiki_contrib_test', 'userTest', 'test');
        return $this->createDefaultDBConnection(self::$pdo, ':wiki_contribTest:');
     }
 
