@@ -13,7 +13,6 @@ include_once(dirname(__FILE__) . '/DBConnection.php');
 include_once(dirname(__FILE__) . '/DBManagement.php');
 
 $bdd = DBConnection::createConnection();
-echo "bdd fait<br>";
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
@@ -62,12 +61,12 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 
 
 $i=0;
-echo $contributor."<br>";
+
 
 DBManagement::insertUserIntoTable($contributor,$bdd);
-echo "insert fait<br>";
+
 $userID = DBManagement::retrieveUserID($contributor,$bdd);
-echo "userId OK<br>";
+
 
 foreach ($usercontributions as $contribution) {
 
@@ -88,10 +87,9 @@ foreach ($usercontributions as $contribution) {
 	}
 
     $uneContrib = new ContributionInfo($userID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp, $contributor);
-    echo "uneContrib ca va<br>";
+
     
     DBManagement::insertContributionIntoTable($uneContrib,$bdd);
-    echo "inserer la contribution c'est ok<br>";
 	
 	$oldRevisionContent = $completeUrl."/w/api.php?action=parse&format=json&oldid=".$oldVersion."&prop=text";
 	$jsonOld = file_get_contents($oldRevisionContent, true);
