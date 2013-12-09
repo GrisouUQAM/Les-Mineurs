@@ -28,7 +28,7 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
         {
             $this->assertEquals(1,compareUserIfInTable("gégé",self::$pdo));
         }
-    */
+*/
 
     public function testNewEntry()
     {
@@ -36,6 +36,10 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
 
     }
 
+    public function testCompareUserIfInTable1()
+    {
+        $this->assertEquals(1,DBManagement::compareUserIfInTable("gégé",self::$pdo));
+    }
 
 }
 
