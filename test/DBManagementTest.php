@@ -42,7 +42,6 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
 
 
 
-
 /// ----------
 /// - Test de compareUserIfInTable
     public function testCompareUserIfInTable1(){
@@ -78,7 +77,6 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
     }
 
 
-
 /// ----------
 /// - Test de retriveUserID
     public function testRetrieveUserID1(){
@@ -91,12 +89,14 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
 
 /// ----------
 /// - Test de insertContributionIntoTable
-    public function testInsertContributionIntoTable(){
+    public function testInsertContributionIntoTable1(){
         $uneContrib = new ContributionInfo("9", "http//blabla",  "3109537", "346457", "568467", "2009-05-27 10:58:19", "io");
-
         $this->assertFalse(DBManagement::insertContributionIntoTable($uneContrib, self::$pdo));
     }
-
+    public function testInsertContributionIntoTable2(){
+        $uneContrib = new ContributionInfo("5", "http//blabla",  "3109537", "346457", "568467", "2009-05-27 10:58:19", "gégé");
+        $this->assertTrue(DBManagement::insertContributionIntoTable($uneContrib, self::$pdo));
+    }
 
 
 }

@@ -4,9 +4,6 @@
     <list default="true" id="ef5dac0c-ecc7-47c2-aed3-d7b593271626" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DBManagement.php" afterPath="$PROJECT_DIR$/src/DBManagement.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/DBManagementTest.php" afterPath="$PROJECT_DIR$/test/DBManagementTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/dataSets/wikiTable.xml" afterPath="$PROJECT_DIR$/test/dataSets/wikiTable.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/wiki_contrib_test.sql" afterPath="$PROJECT_DIR$/test/wiki_contrib_test.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Les-Mineurs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +33,7 @@
       <file leaf-file-name="DBManagementTest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/DBManagementTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="43" selection-start="964" selection-end="964" vertical-scroll-proportion="34.041668" vertical-offset="1222" max-vertical-offset="1665">
+            <state line="42" column="0" selection-start="1430" selection-end="1430" vertical-scroll-proportion="25.208334" vertical-offset="1235" max-vertical-offset="1665">
               <folding />
             </state>
           </provider>
@@ -45,7 +42,7 @@
       <file leaf-file-name="DBManagement.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DBManagement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="34" selection-start="0" selection-end="6210" vertical-scroll-proportion="0.55813956" vertical-offset="0" max-vertical-offset="2355">
+            <state line="56" column="27" selection-start="2892" selection-end="2892" vertical-scroll-proportion="0.73255813" vertical-offset="525" max-vertical-offset="2415">
               <folding />
             </state>
           </provider>
@@ -54,7 +51,7 @@
       <file leaf-file-name="DBConnection.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DBConnection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="48" selection-start="249" selection-end="285" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="270">
+            <state line="7" column="48" selection-start="253" selection-end="285" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
@@ -108,8 +105,8 @@
         <option value="$PROJECT_DIR$/test/PHPUnitExtensionsDatabaseOperationMySQL55Truncate.php" />
         <option value="$PROJECT_DIR$/test/dataSets/wikiTable.xml" />
         <option value="$PROJECT_DIR$/test/wiki_contrib_test.sql" />
-        <option value="$PROJECT_DIR$/test/DBManagementTest.php" />
         <option value="$PROJECT_DIR$/src/DBManagement.php" />
+        <option value="$PROJECT_DIR$/test/DBManagementTest.php" />
       </list>
     </option>
   </component>
@@ -415,21 +412,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBConnection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="48" selection-start="249" selection-end="285" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="270">
+        <state line="7" column="48" selection-start="253" selection-end="285" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="270">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/DBManagementTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="43" selection-start="964" selection-end="964" vertical-scroll-proportion="34.041668" vertical-offset="1222" max-vertical-offset="1665">
+        <state line="42" column="0" selection-start="1430" selection-end="1430" vertical-scroll-proportion="25.208334" vertical-offset="1235" max-vertical-offset="1665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBManagement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="34" selection-start="0" selection-end="6210" vertical-scroll-proportion="0.55813956" vertical-offset="0" max-vertical-offset="2355">
+        <state line="56" column="27" selection-start="2892" selection-end="2892" vertical-scroll-proportion="0.73255813" vertical-offset="525" max-vertical-offset="2415">
           <folding />
         </state>
       </provider>
