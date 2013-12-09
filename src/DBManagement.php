@@ -43,13 +43,6 @@ class DBManagement {
   public static function insertContributionIntoTable($uneContrib, $dataBase){
     
     if (!DBManagement::compareContributionIfInTable($uneContrib, $dataBase)){
-      
-//      $contributionIDToInsert = {$uneContrib->ContributionInfo::getPagesId()};
-//      $contributionOldVersionToInsert = {$uneContrib->ContributionInfo::getOldVersion()};
-//      $contributionUserVersionToInsert = {$uneContrib->ContributionInfo::getUserVersion()};
-//      $contributionUsertimestampToInsert = {$uneContrib->ContributionInfo::getUsertimestamp()};
-//      $contributionWebsiteToInsert = {$uneContrib->ContributionInfo::getWebsite()};
-//      $contributorID = {$uneContrib->ContributionInfo::getUserID()};
 
 
             $contributionIDToInsert = $uneContrib->getPagesId();
@@ -60,15 +53,7 @@ class DBManagement {
             $contributorID = $uneContrib->getUserID();
 
 
-// echo "PID\n";
-//echo $unPostPID;
-//echo "UID\n";
-// echo $unPostUID;
-//echo "WEB\n";
-// echo $unPostWEB;
-
-
-        $result = $dataBase ->prepare("INSERT INTO talk(ID,page_id,rev_id,parent_id,time,website) VALUES(:contributorID,:contributionIDToInsert,:contributionUserVersionToInsert,:contributionOldVersionToInsert,:contributionUsertimestampToInsert,:contributionWebsiteToInsert)");
+        $result = $dataBase ->prepare("INSERT INTO contributions(ID,page_id,rev_id,parent_id,contrib_time,website) VALUES(:contributorID,:contributionIDToInsert,:contributionUserVersionToInsert,:contributionOldVersionToInsert,:contributionUsertimestampToInsert,:contributionWebsiteToInsert)");
         $result->execute(array(':contributorID' => $contributorID, ':contributionIDToInsert' => $contributionIDToInsert, ':contributionUserVersionToInsert' => $contributionUserVersionToInsert, ':contributionOldVersionToInsert' => $contributionOldVersionToInsert, ':contributionUsertimestampToInsert' => $contributionUsertimestampToInsert, ':contributionWebsiteToInsert' => $contributionWebsiteToInsert));
         if(!$result){
             print_r($dataBase->errorInfo());
