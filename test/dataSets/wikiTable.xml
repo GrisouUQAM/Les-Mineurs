@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+
+
         <contributor ID="03" contributor_username="josé" />
         <contributor ID="04" contributor_username="victor" />
         <contributor ID="05" contributor_username="gégé" />
 
     <contributions ID="05" contrib_time="" page_id="" parent_id="" rev_id="" website="" />
+    <contributions ID="03" contrib_time="" page_id="" parent_id="" rev_id="" website="" />
+
 </dataset>
