@@ -152,10 +152,6 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
         $this->assertFalse(DBManagement::comparePostIfInTable($unPost2,self::$pdo));
     }
 
-/*
-
-comparePostIfInTable($unPost, $dataBase)
-*/
 }
 
 
