@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 19, 2013 at 01:30 AM
+-- Generation Time: Dec 09, 2013 at 12:34 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `contributions` (
   `page_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rev_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `parent_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `contrib_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `talk` (
   `ID` int(11) NOT NULL,
   `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `page_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `rev_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `rev_id` varchar(255) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
