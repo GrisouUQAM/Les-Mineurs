@@ -20,9 +20,10 @@ class DBManagement {
 
       $uneContribPID = $uneContrib->getPagesID();
       $uneContribUID = $uneContrib->getUserID();
+	    $uneContribRID = $uneContrib->getUserVersion();
       $uneContribWEB = $uneContrib->getWebSite();
 
-      $result = $dataBase -> query("SELECT * FROM contributions WHERE page_id='$uneContribPID' AND ID='$uneContribUID' AND website='$uneContribWEB'");
+      $result = $dataBase -> query("SELECT * FROM contributions WHERE page_id='$uneContribPID' AND ID='$uneContribUID' AND website='$uneContribWEB' AND rev_id='$uneContribRID'");
       if(!$result){
           print_r($dataBase->errorInfo());
       }
