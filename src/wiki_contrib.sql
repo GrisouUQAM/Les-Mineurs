@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2013 at 12:34 AM
+-- Generation Time: Dec 09, 2013 at 02:39 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -29,13 +29,12 @@ USE `wiki_contrib`;
 --
 
 CREATE TABLE IF NOT EXISTS `contributions` (
-  `ID` int(11) NOT NULL,
   `page_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rev_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `parent_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `contrib_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`ID`)
+  `ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
