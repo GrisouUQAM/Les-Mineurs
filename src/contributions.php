@@ -8,11 +8,11 @@ $completeUrl = "http://";
 $completeUrl.= $url;
 
 include_once( dirname(__FILE__) . '/diffFunctions.php');
-include_once(dirname(__FILE__) . '/ContributionInfo.php');
-include_once(dirname(__FILE__) . '/DBConnection.php');
-include_once(dirname(__FILE__) . '/DBManagement.php');
+include_once(dirname(__FILE__) . '/ContributionInfo.php'); // ------- | GENTIL-AJOUT Les-Mineurs | --------
+include_once(dirname(__FILE__) . '/DBConnection.php');     // ------- | GENTIL-AJOUT Les-Mineurs | --------
+include_once(dirname(__FILE__) . '/DBManagement.php');     // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
-$bdd = DBConnection::createConnection();
+$bdd = DBConnection::createConnection();                   // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
 function showGoogleDiff($text1, $text2) {
 	$result = getDiff($text1, $text2); //Return an array of Diff objects
@@ -60,12 +60,12 @@ $result = '<h1>Articles which '.$contributor.' contributed to</h1>
 				</tr>';
 
 
-$i=0;
+$i=0;                                                       // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
 
-DBManagement::insertUserIntoTable($contributor,$bdd);
+DBManagement::insertUserIntoTable($contributor,$bdd);       // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
-$userID = DBManagement::retrieveUserID($contributor,$bdd);
+$userID = DBManagement::retrieveUserID($contributor,$bdd);  // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
 
 foreach ($usercontributions as $contribution) {
@@ -86,10 +86,10 @@ foreach ($usercontributions as $contribution) {
 		$usertimestamp = $temp['timestamp'];
 	}
 
-    $uneContrib = new ContributionInfo($userID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp, $contributor);
+    $uneContrib = new ContributionInfo($userID, $wikiurl ,$pageId, $oldVersion, $userVersion, $usertimestamp, $contributor); // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
     
-    DBManagement::insertContributionIntoTable($uneContrib,$bdd);
+    DBManagement::insertContributionIntoTable($uneContrib,$bdd);    // ------- | GENTIL-AJOUT Les-Mineurs | --------
 	
 	$oldRevisionContent = $completeUrl."/w/api.php?action=parse&format=json&oldid=".$oldVersion."&prop=text";
 	$jsonOld = file_get_contents($oldRevisionContent, true);
@@ -166,7 +166,7 @@ foreach ($usercontributions as $contribution) {
 	$result .= '<td>'.$analysisTable.'</td>';
 	$result .= '<td>Score quelconque</td></tr>';
 
-    $i++;
+    $i++;                                           // ------- | GENTIL-AJOUT Les-Mineurs | --------
 }
 
 $result .= '</table>
@@ -191,11 +191,11 @@ $result .= '<h1>Talks which '.$contributor.' contributed to</h1>
 				</tr>';
 				
 foreach ($userTalks as $talk) {
-  $pageId = $talk['pageid'];
-  $revisionId = $talk['revid'];
+  $pageId = $talk['pageid'];                                            // ------- | GENTIL-AJOUT Les-Mineurs | --------
+  $revisionId = $talk['revid'];                                         // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
-  $unPost = new PostInfo($userID, $wikiurl ,$pageId, $revisionId);
-  DBManagement::insertPostIntoTable($unPost,$bdd);
+  $unPost = new PostInfo($userID, $wikiurl ,$pageId, $revisionId);      // ------- | GENTIL-AJOUT Les-Mineurs | --------
+  DBManagement::insertPostIntoTable($unPost,$bdd);                      // ------- | GENTIL-AJOUT Les-Mineurs | --------
 
 	$result .= '<tr><td>'.$talk['title'].'</td>';
 
