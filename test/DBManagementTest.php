@@ -3,7 +3,7 @@ require_once "PHPUnit/Extensions/Database/TestCase.php";
 include_once ('../src/DBManagement.php');
 include_once ('../src/PostInfo.php');
 include_once ('../src/ContributionInfo.php');
-include_once ('./PHPUnitExtensionsDatabaseOperationMySQL55Truncate.php');
+include_once ('./PHPUnitExtensionsDatabaseOperationMySQL55Truncate.php'); //for fix Foreign Key integrity Truncate problem
 
 
 class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
@@ -43,7 +43,7 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
 
 
 /// ----------
-/// - Test de compareUserIfInTable
+/// - Tests de compareUserIfInTable
     public function testCompareUserIfInTable1(){
         $this->assertTrue(DBManagement::compareUserIfInTable("gégé",self::$pdo));
     }
@@ -56,7 +56,7 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
 
 
 /// ----------
-/// - Test de compareUserIfInTable
+/// - Tests de compareUserIfInTable
     /**
      * @depends testDuDataSet
      * Le résultat dépends des infos du DataSet (wikiTest.xml)
@@ -78,7 +78,7 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
 
 
 /// ----------
-/// - Test de retriveUserID
+/// - Tests de retriveUserID
     public function testRetrieveUserID1(){
         $this->assertNull(DBManagement::retrieveUserID("adffgf", self::$pdo));
     }
@@ -88,7 +88,7 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
 
 
 /// ----------
-/// - Test de insertContributionIntoTable
+/// - Tests de insertContributionIntoTable
     public function testInsertContributionIntoTable1(){
         $uneContrib = new ContributionInfo("9", "http//blabla",  "3109537", "346457", "568467", "2009-05-27 10:58:19", "io");
         $this->assertFalse(DBManagement::insertContributionIntoTable($uneContrib, self::$pdo));
@@ -98,7 +98,64 @@ class DBManagementTest extends PHPUnit_Extensions_Database_TestCase {
         $this->assertTrue(DBManagement::insertContributionIntoTable($uneContrib, self::$pdo));
     }
 
+/// ----------
+/// - Tests de compareContributionIfInTable
+    /**
+     * @depends testInsertContributionIntoTable2
+     */
+    public function testcompareContributionIfInTable1(){
+        $uneContrib = new ContributionInfo("5", "http//blabla",  "3109537", "346457", "568467", "2009-05-27 10:58:19", "gégé");
+        DBManagement::insertContributionIntoTable($uneContrib, self::$pdo);
+        $this->assertTrue(DBManagement::compareContributionIfInTable($uneContrib,self::$pdo));
+    }
 
+    /**
+     * @depends testInsertContributionIntoTable2
+     */
+    public function testcompareContributionIfInTable2(){
+        $uneContrib = new ContributionInfo("5", "http//blabla",  "3109537", "346457", "568467", "2006-05-27 10:58:19", "gégé");
+        DBManagement::insertContributionIntoTable($uneContrib, self::$pdo);
+        $uneContrib2 = new ContributionInfo("5", "http//",  "3109537", "346457", "568467", "2006-05-27 10:58:19", "gégé");
+        $this->assertFalse(DBManagement::compareContributionIfInTable($uneContrib2,self::$pdo));
+    }
+
+
+/// ----------
+/// - Tests de insertPostIntoTable
+    public function insertPostIntoTable1(){
+        $unPost = new PostInfo("9", "http//blabla",  "3109537", "346457");
+        $this->assertFalse(DBManagement::insertPostIntoTable($unPost, self::$pdo));
+    }
+    public function insertPostIntoTable2(){
+        $unPost = new PostInfo("5", "http//blabla",  "3109537", "346457");
+        $this->assertTrue(DBManagement::insertPostIntoTable($unPost, self::$pdo));
+    }
+
+/// ----------
+/// - Tests de comparePostIfInTable
+    /**
+     * @depends insertPostIntoTable2
+     */
+    public function comparePostIfInTable1(){
+        $unPost = new PostInfo("5", "http//blabla",  "3109537", "346457");
+        DBManagement::insertPostIntoTable($unPost, self::$pdo);
+        $this->assertTrue(DBManagement::comparePostIfInTable($unPost,self::$pdo));
+    }
+
+    /**
+     * @depends insertPostIntoTable2
+     */
+    public function comparePostIfInTable2(){
+        $unPost = new PostInfo("3", "http//blabla",  "3109537", "346457");
+        DBManagement::insertPostIntoTable($unPost, self::$pdo);
+        $unPost2 = new PostInfo("7", "http//blabla",  "3109537", "346457");
+        $this->assertFalse(DBManagement::comparePostIfInTable($unPost2,self::$pdo));
+    }
+
+/*
+
+comparePostIfInTable($unPost, $dataBase)
+*/
 }
 
 

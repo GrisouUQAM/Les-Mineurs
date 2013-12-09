@@ -18,7 +18,6 @@ class DBManagement
     public static function compareContributionIfInTable($uneContrib, $dataBase)
     {
 
-
         $uneContribPID = $uneContrib->getPagesID();
         $uneContribUID = $uneContrib->getUserID();
         $uneContribRID = $uneContrib->getUserVersion();
