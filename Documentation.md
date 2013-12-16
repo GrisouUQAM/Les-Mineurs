@@ -86,7 +86,7 @@ Test Unitaire
 -------------
 **Présentation**
 
-Dans le dossier test se trouve de quoi tester les methodes de la classe DBManagement
+Le dossier test contient les tests pour les methodes de la classe DBManagement.
 
 **Instalation**
 
@@ -96,7 +96,7 @@ PhpUnit et DBUnit **sont installé dans le Repo**
 Si ce n'est plus/pas le cas:
 
 - Pour l'instaler dans un repo par phpStorm, [ici][2].
-- Ou sur toute votre machine [PhpUnit][1] 
+- Pour l'installer sur votre machine [PhpUnit][1] 
 
 
 
