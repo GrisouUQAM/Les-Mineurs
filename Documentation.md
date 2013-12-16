@@ -13,7 +13,10 @@ Base de données
 
 Importez le fichier wiki_contrib.sql dans phpMyAdmin.
 
-Ajouter l'usager wikicontrib avec cette requete SQL:
+Ajouter l'usager wikicontrib avec cette requête SQL
+(ceci est un exemple dans un cadre développement donc le nom
+de l'utilisateur, de la base de données et le mot de passe peuvent
+et devraient être différents):
 
     CREATE USER 'wikicontrib'@'localhost' IDENTIFIED BY 'wiki007';
     GRANT ALL PRIVILEGES ON wiki_contrib . * TO 'wikicontrib'@'localhost';
