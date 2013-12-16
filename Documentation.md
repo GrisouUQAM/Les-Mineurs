@@ -84,7 +84,7 @@ Méthode pour usage externe :
 
 Test Unitaire
 -------------
-**Présenation**
+**Présentation**
 
 Dans le dossier test se trouve de quoi tester les methodes de la classe DBManagement
 
