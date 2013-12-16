@@ -90,6 +90,8 @@ Le dossier test contient les tests pour les methodes de la classe DBManagement.
 
 **Instalation**
 
+Importez le fichier **wiki_contrib_test.sql** dans phpMyAdmin. Pour crée la BD de test.
+
 PhpUnit et DBUnit **sont installé dans le Repo**
 (PhpStorm le détecte automatiquement)
 
@@ -99,10 +101,7 @@ Si ce n'est plus/pas le cas:
 - Pour l'installer sur votre machine [PhpUnit][1] 
 
 
-
 **Utilisation**
-
-Importez le fichier **wiki_contrib_test.sql** dans phpMyAdmin. Pour crée la BD de test.
 
 
 * Méthodes de DBManagmentTest.php :
