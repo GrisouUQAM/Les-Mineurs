@@ -22,6 +22,9 @@ et devraient être différents):
     GRANT ALL PRIVILEGES ON wiki_contrib . * TO 'wikicontrib'@'localhost';
     FLUSH PRIVILEGES;
 
+[Schéma de la base de données](http://i.imgur.com/eOeC1dM.png)
+
+
 Classe ContributionInfo.php
 -------------
 
